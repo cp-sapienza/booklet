@@ -47,6 +47,16 @@ if the graph is not a DAG, order will be empty
 \lstinputlisting{source/topological_sort.cpp}
 
 
+\subsection{Prim's Algorithm (Dense Graphs) - Minimum Spanning Tree}
+\bigo{V^2}
+
+Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge between \verb|u| and \verb|v|. \\
+Returns the adjacency list of the minimum spanning tree of the given graph. \\
+If the graph is not connected it returns an empty list. \\
+\verb|auto adj = prim(adjacency_matrix);| \\
+\lstinputlisting{source/prim_mst_dense.cpp}
+
+
 \subsection{Kosaraju - Strongly Connected Components}
 \bigo{V + E}
 
