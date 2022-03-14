@@ -37,8 +37,8 @@ struct PushRelabel {
 						H[u] = H[e.dest]+1, cur[u] = &e;
 					if (++co[H[u]], !--co[hi] && hi < v)
 						for(int i = 0; i < v; i++)
-					    	if (hi < H[i] && H[i] < v)
-							    --co[H[i]], H[i] = v + 1;
+							if (hi < H[i] && H[i] < v)
+								--co[H[i]], H[i] = v + 1;
 					hi = H[u];
 				} else if (cur[u]->c && H[u] == H[cur[u]->dest]+1)
 					addFlow(*cur[u], min(ec[u], cur[u]->c));
