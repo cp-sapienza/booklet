@@ -1,0 +1,136 @@
+\section{Maths}
+\todo{infinite/finite sums, FFT}
+\todo{Combinatorics: binomials, permutation to/from index, catalan}
+\todo{Game Theory, Grundy Theorem}
+\todo{Statistics (distributions)}
+
+
+\subsection{Modular multiplication}
+\bigo{logN} Time
+
+Computes $(a * b)$\:\%\:mod without overflow.
+\lstinputlisting{source/mod_mul.cpp}
+
+
+\subsection{Binary Exponentiation}
+\bigo{logN} Time
+
+Returns ${base^{exp}}$\:\%\:mod
+
+Works with \verb|int|
+\lstinputlisting{source/bin_expo.cpp}
+
+Works with \verb|long long| \\
+Requires \verb|mod_mul(ll, ll, ll)|
+\lstinputlisting{source/bin_expoll.cpp}
+
+
+\subsection{Modulo Inverse}
+\bigo{logN} Time
+
+Returns ${x^{-1}}$\:\%\:mod
+
+Works with \verb|int| \\
+Requires \verb|bin_expo(int, int, int)|
+\lstinputlisting{source/mod_inverse.cpp}
+
+
+Works with \verb|long long| \\
+Requires \verb|bin_expoll(ll, ll, ll)|
+\lstinputlisting{source/mod_inversell.cpp}
+
+
+\subsection{Factorial}
+\bigo{N} Time
+
+Initializes \verb|factorial| and \verb|inv_factorial| \\
+If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*| \\
+and \verb|mod_inversell(ll, ll)| must be used instead of \verb|mod_inverse(int, int)|
+
+Requires \verb|mod_inverse(int, int)|
+\lstinputlisting{source/factorial.cpp}
+
+
+\subsection{Binomial Coefficient}
+\bigo{1} Time
+
+Computes $\binom{n}{k}$\:\%\:mod \\
+If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*|
+
+\verb|init_factorials(int, int)| must be called before this function!
+\lstinputlisting{source/binomial_coefficient.cpp}
+
+
+\subsection{Prime sieve}
+Calculates \verb|isprime| for all $x \in [0 \ldots N]$, \bigo{NloglogN}.
+\lstinputlisting{source/erathostenes.cpp}
+
+\subsection{(Deterministic) Miller-Rabin - Primality Check}
+Returns true if the number is prime, false otherwise
+
+Requires \verb|mod_mul(ll, ll, ll), mod_expoll(ll, ll, ll)|
+\lstinputlisting{source/miller_rabin.cpp}
+
+
+\subsection{Pollard's Rho - Prime Factor}
+Returns n if n is prime or n is $< 2$ \\
+Else returns a prime factor of n
+
+Requires \verb|miller_rabin(ll), mod_mul(ll, ll, ll)|
+\lstinputlisting{source/pollard_rho.cpp}
+
+
+\subsection{Integer Factorization}
+Returns a sorted list of prime factors of n \\
+Each factor is represented as a \verb|pair<ll, int>| \\
+where the first element is the prime factor and the second is the power of that factor
+
+Requires \verb|pollard_rho(ll)|
+\lstinputlisting{source/factorize.cpp}
+
+
+\subsection{Extended Euclidean Algorithm}
+\bigo{log(min(a, b))} Time
+
+Solves $ax + by = gcd(a, b)$ \\
+\verb|auto [x, y, g] = egcd(l, n[i]);|
+\lstinputlisting{source/egcd.cpp}
+
+
+\subsection{Diophantine Linear Equations}
+\bigo{log(min(a, b))} Time
+
+Solves $ax + by = c$ \\
+Returns \verb|true| if there's a solution, \verb|false| otherwise \\
+\verb|diophantine(a, b, c, x0, y0, g);| \\
+If there's a solution the function will do side-effect on \verb|x0, y0, g|\\
+All the possible solutions have the form: \\
+\verb|x = x0 + (b / g) * k| \\
+\verb|y = y0 - (a / g) * k| \\
+with $k \in Z$
+
+Requires \verb|egcd(ll, ll)|
+\lstinputlisting{source/diophantine.cpp}
+
+
+\subsection{Chinese Remainder Theorem}
+Returns x in range [0, $\prod{n[i]}$) s.t.
+$x = a[i] \: mod \: n[i], \forall i$ \\
+It there's no solution, it returns -1
+
+Requires \verb|egcd(ll, ll)|
+\lstinputlisting{source/chinese_remainder_theorem.cpp}
+
+
+\subsection{Matrix multiplication \& power}
+Functions for matrix-matrix multiplication, matrix-vector multiplication and matrix power. All elements are calculated modulo \verb|mod|. If \verb|mod| $> 2^{32}$, \verb|mod_mul| must be used instead of \verb|*| for multiplication inside of \verb|mat_mul|
+\lstinputlisting{source/matrix_mult_pow.cpp}
+
+\subsection{Linear recurrences}
+Solve for the n-th term of a linear recurrence in \bigo{(k+h)^3logn}.\\
+$x_i = a_0 x_{i-1} + ... + a_{k-1} x_{i-k} \;\; + \;\; b_0 + b_1 i + ... + b_{h-1} i^h$ \\
+Given $x_0, x_1, ..., x_{k-1}$ calculates $x_n \% mod$.
+
+Fibonacci: \texttt{linear\_recurrence(\{1,1\},\{\},\{0,1\},n,mod);}\\
+Requires \verb|mat_mul|, \verb|mat_pow|
+\lstinputlisting{source/linear_recurrences.cpp}

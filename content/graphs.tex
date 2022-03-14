@@ -1,0 +1,56 @@
+\section{Graphs}
+\todo{Flows, matching, euler tour, bridges+art. points, CC, mst Prim}
+
+\subsection{Conventions}
+\begin{lstlisting}
+constexpr ll INF = 1e18;
+\end{lstlisting}
+V := number of vertices, E := number of edges
+
+\subsection{Dijkstra - Single Source Shortest Path}
+\bigo{ElogV} , fails with negative weight cycles.
+
+\verb|vector<ll> dist = dijkstra(adj_list, src);| \\
+\verb|dist[u]| := distance between node \verb|src| and \verb|u| \\
+\verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|u|
+\lstinputlisting{source/dijkstra.cpp}
+
+
+\subsection{Bellman-Ford - Single Source Shortest Path}
+\bigo{VE}, handles negative weight edges and cycles.
+
+Edges are represented by an \verb|array<int, 3> edge| s.t.: \\
+\verb|edge[0] = from, edge[1] = to, edge[2] = cost| \\
+\verb|vector<ll> dist = bellman_ford(edge_list, v, src);|, v = number of vertices \\
+\verb|dist[u]| := distance between node \verb|src| and \verb|v| \\
+\verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|v| \\
+\verb|dist[u]| = \verb|-INF| if there's a negative-weight cycle between \verb|src| and \verb|v|
+\lstinputlisting{source/bellman_ford.cpp}
+
+
+\subsection{Floyd Warshall - All-pairs Shortest Path}
+\bigo{V^3}
+
+Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge between \verb|u| and \verb|v|. Handles negative cycles. \\
+\verb|auto dist = floyd_warshall(adjacency_matrix);| \\
+\verb|dist[u][v]| := distance between node \verb|u| and \verb|v| \\
+\verb|dist[u][v]| = \verb|INF| if there's no path between \verb|u| and \verb|v| \\
+\verb|dist[u][v]| = \verb|-INF| if the path between \verb|u| and \verb|v| can be made arbitrarily short by going through a negative weight cycle
+\lstinputlisting{source/floyd_warshall.cpp}
+
+
+\subsection{Khan - Topological Sort}
+\bigo{V + E}
+
+\verb|vi order = topological_sort(adjacency_list);| \\
+if the graph is not a DAG, order will be empty
+\lstinputlisting{source/topological_sort.cpp}
+
+
+\subsection{Kosaraju - Strongly Connected Components}
+\bigo{V + E}
+
+\verb|Korasaju korasaju{adjacency_list};| \\
+\verb|korasaju.cc| will store the total number of strongly connected components \\
+\verb|korasaju.comp[u]| will store an integer in range [0, cc) representing the strongly connected component of u
+\lstinputlisting{source/kosaraju.cpp}

@@ -1,0 +1,12 @@
+\section{Bit manipulation}
+
+$\floor{log2(x)}$, for \verb|int| x. For \verb|long long|, use \verb|1LL| and \verb|clzll|.
+\begin{lstlisting}
+__builtin_clz(1) - __builtin_clz(x);
+\end{lstlisting}
+
+$\ceil{log2(x)}$, for \verb|int| x. For \verb|long long|, use \verb|1LL| and \verb|clzll|.
+\begin{lstlisting}
+int res = __builtin_clz(1) - __builtin_clz(x);
+if(__builtin_popcount(x) > 1) res++;
+\end{lstlisting}

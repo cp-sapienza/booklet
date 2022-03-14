@@ -1,0 +1,11 @@
+\section{Flows}
+\todo{Bipartite matching, independent set, MCMF}
+
+\subsection{Max flow - push relabel}
+% Thanks KACTL <3
+\bigo{V^2 \sqrt{E}}. After \verb|calc|, edges with positive \verb|f| contain the actual flow.
+\lstinputlisting{source/push_relabel.cpp}
+
+\subsection{Maximum bipartite matching}
+Given a bipartite graph with \verb|N| nodes on the left (numbered $0 \ldots N-1$) and \verb|M| on the right (numbered $0 \ldots M-1$), select as many edges as possible such that two edges never touch. Returns the list of edges in the matching.
+\lstinputlisting{source/bipartite_matching.cpp}

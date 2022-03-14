@@ -1,0 +1,13 @@
+\section{Trees}
+\todo{Centroid decomposition}
+
+\subsection{Binary Lifting / LCA}
+\bigo{NlogN} time and space per construction, \bigo{logN} per query
+
+\verb|Tree tree{adjacency_list};| // Creates a Tree rooted at 0 \\
+\verb|Tree tree{adjacency_list, root};| // Creates a Tree rooted at root
+\lstinputlisting{source/Tree.cpp}
+
+\subsection{Heavy Light Decomposition}
+\bigo{N} construction and memory usage, \bigo{Nlog^2N} queries and updates on tree paths.
+\lstinputlisting{source/HLD.cpp}

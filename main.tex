@@ -1,0 +1,156 @@
+\documentclass[9pt, a4paper, notitlepage]{extreport}
+
+\usepackage[utf8]{inputenc}             % Encoding UTF-8
+\usepackage{listings}                   % Source code listings
+\usepackage{framed}                     % Source code listings
+\usepackage[a4paper,landscape,hmargin={0.5cm,0.5cm},vmargin={1.0cm,0.4cm}]{geometry}
+\usepackage{multicol}                   % Split page in multiple columns
+\usepackage{fancyhdr}                   % Fancy headers
+\usepackage{amsbsy, amssymb, amsmath}   % Enable math symbols
+\usepackage{tocloft}                    % Custom Table of Contents
+\usepackage{titletoc}                   % Design control over Table of Contents
+\usepackage{ifthen}                     % To enable some conditional programming in LaTeX
+\usepackage{courier}                    % To get bold typewriter typeface
+\usepackage{graphicx}                   % To rotate page numbers
+\usepackage{fix-cm}                     % Large font sizes
+\usepackage{paralist}                   % For compact enumerations
+\usepackage[inline]{enumitem}           % For horizontal lists
+\usepackage[parfill]{parskip}           % For compact enumerations
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage[hidelinks]{hyperref}        % For clickable table of contents
+\usepackage{lipsum}                     % dummy text
+\usepackage{titlesec}
+\usepackage{mathtools}
+\usepackage{framed}
+\usepackage{sourcecodepro}  %queste due linee settano tutto a sourcecodepro
+
+\newcommand{\enablecolors}{
+	\lstset{basicstyle=\footnotesize\ttfamily\color{mygreen}}
+	\lstset{commentstyle=\color{darkgray}\normalfont\itshape}
+	\lstset{keywordstyle=\color{myblue}}
+	\lstset{identifierstyle=\color{black}}
+}
+
+\title{CP Sapienza Booklet}
+\newcommand{\PDFColor}{0}
+
+\newmarks\hdrmark
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\headheight 25pt
+\rhead{\thepage}
+\lhead{}
+% \lhead{}\chead{\thepage}\rhead{}
+\lhead{Sapienza Università di Roma}
+\lfoot{}\cfoot{}\rfoot{}
+\fancyheadoffset{0pt}
+\fancyfootoffset{0pt}
+\setlength\headsep{5pt}
+
+% Styles for main toc
+\renewcommand{\chaptermark}[1]{\markboth{\emph{ #1}}{}}
+\renewcommand{\cftbeforetoctitleskip}{-5pt}
+\renewcommand{\cftaftertoctitleskip}{10pt}
+\renewcommand{\cftbeforechapskip}{11pt}
+% \renewcommand\cftchapfont{\large\bfseries}
+\renewcommand{\cftdotsep}{4.5}
+
+% Proper carets and tildes
+\newcommand*{\caret}{%
+  \begingroup
+    \fontencoding{T1}%
+    \fontfamily{pcr}% Courier
+    \selectfont
+    \string^%
+  \endgroup
+}
+\renewcommand*{\tilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
+
+% Fatter {} which are more distinguishable from ()
+% Makes pdf compile time 5-10% slower, but probably worth it still?
+\newcommand*{\nicelbrace}{%
+  \begingroup
+    \fontencoding{T1}%
+    \fontfamily{pcr}% Courier
+    \selectfont
+	\scalebox{1.8}[1]{\color{black!80}{\{}}%
+  \endgroup
+}
+\newcommand*{\nicerbrace}{%
+  \begingroup
+    \fontencoding{T1}%
+    \fontfamily{pcr}% Courier
+    \selectfont
+	\scalebox{1.8}[1]{\color{black!80}{\}}}%
+  \endgroup
+}
+
+% Spacing around section and subsection titles
+
+% \titlespacing*{\section}
+% {-2pt}{2ex plus -1ex minus .2ex}{1.5ex plus .2ex}
+
+%\titlespacing*{\subsection}
+%{-2pt}{2ex plus -1ex minus .2ex}{1.5ex plus .2ex}
+
+% \renewcommand{\thesection}{\arabic{section}}
+
+\definecolor{mygreen}{HTML}{007000}
+\definecolor{myblue}{HTML}{0000dd}
+
+% Configure source code listings
+\lstset{language=C++}
+\lstset{morekeywords={alignas,alignof}}
+\lstset{deletedirectives={line}}
+\lstset{frame=t}
+\lstset{tabsize=2}
+\lstset{showstringspaces=false}
+\lstset{breaklines=true}
+\lstset{basicstyle=\footnotesize\ttfamily}
+% \lstset{basicstyle=\small\ttfamily}
+\lstset{commentstyle=\normalfont\itshape}
+\lstset{literate={^}{\caret}{1} {~}{\tilde}{1} {\{}{\nicelbrace}{1} {\}}{\nicerbrace}{1}}
+\lstset{emptylines=*1}
+\lstset{inputencoding=utf8}
+% \lstset{aboveskip=3pt}
+% \lstset{belowskip=2pt}
+% \lstset{postbreak=\mbox{\textcolor{blue}{$\hookrightarrow$}\space}}
+
+\lstdefinelanguage{raw}{} % Raw language, no keywords.
+
+\setlength{\columnseprule}{0.5pt} % Multicol separation line with
+\setlength{\columnsep}{10pt} % Multicol separation margin
+\setcounter{tocdepth}{2} % Table of contents depth
+\setcounter{secnumdepth}{0} % No section numbers
+
+\newcommand{\bigo}[1]{$\mathcal{O}(#1)$}
+
+% \definecolor{shadecolor}{HTML}{dddddd}
+% \newcommand{\todo}[1]{\begin{snugshade}\textbf{TODO: #1}\end{snugshade}}
+\definecolor{shadecolor}{named}{lightgray}
+\newcommand{\todo}[1]{\begin{shaded}\textbf{TODO: #1}\end{shaded}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+\begin{document}
+\begin{multicols*}{3}
+
+\todo{Page number/uni name in first page}
+
+\tableofcontents
+\input{content/basics}
+\input{content/data-structures}
+\input{content/strings}
+\input{content/bit-ops}
+\input{content/maths}
+\input{content/lp}
+\input{content/graphs}
+\input{content/flows}
+\input{content/trees}
+\input{content/geometry}
+
+\end{multicols*}
+\end{document}
