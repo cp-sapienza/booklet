@@ -1,6 +1,6 @@
 \section{Maths}
 \todo{infinite/finite sums, FFT}
-\todo{Combinatorics: binomials, permutation to/from index, catalan}
+\todo{permutation to/from index}
 \todo{Game Theory, Grundy Theorem}
 \todo{Statistics (distributions)}
 
@@ -59,6 +59,17 @@ If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \ve
 
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/binomial_coefficient.cpp}
+
+\todo{Add list of problems solved by Catalan numbers}
+
+\subsection{Catalan Number}
+\bigo{1} Time
+
+Computes the n-th Catalan number \\
+If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*|
+
+\verb|init_factorials(int, int)| must be called before this function!
+\lstinputlisting{source/catalan_number.cpp}
 
 
 \subsection{Prime sieve}
