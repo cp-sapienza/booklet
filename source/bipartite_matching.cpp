@@ -1,5 +1,4 @@
-vector<pair<int,int>> bipartite_matching(vector<pair<int,int>>& edges, int n, int m)
-{
+vector<pair<int,int>> bipartite_matching(vector<pair<int,int>>& edges, int n, int m) {
 	PushRelabel pr(n+m+2);
 	for(auto e : edges) pr.addEdge(e.first, n+e.second, 1);
 	for(int i = 0; i < n; i++) pr.addEdge(n+m, i, 1);

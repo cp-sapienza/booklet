@@ -1,9 +1,7 @@
-vector<int> z_function(string s)
-{
+vector<int> z_function(string s) {
 	int n = s.size();
 	vector<int> z(n, 0);
-	for(int i = 1, l = 0, r = 0; i < n; i++)
-	{
+	for(int i = 1, l = 0, r = 0; i < n; i++) {
 		if(i <= r) z[i] = min(r-i+1, z[i-l]);
 		while(i+z[i] < n && s[i+z[i]] == s[z[i]]) z[i]++;
 		if(i+z[i]-1 > r) l = i, r = i + z[i] - 1;
@@ -13,8 +11,7 @@ vector<int> z_function(string s)
 }
 
 // Find occurrences of pat in text
-int z_algorithm(string text, string pat)
-{
+int z_algorithm(string text, string pat) {
 	auto z = z_function(pat + '\0' + text);
 
 	int res = 0;

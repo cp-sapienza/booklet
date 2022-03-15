@@ -8,7 +8,6 @@ using ll = long long;
 using vi = vector<int>;
 using vll = vector<ll>;
 
-int main()
-{
+int main() {
 	cin.tie(0)->sync_with_stdio(false);
 }
