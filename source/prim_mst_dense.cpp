@@ -1,6 +1,6 @@
 vector<vector<pair<int, ll>>> prim(const vector<vector<ll>>& mat) {
 	int n = mat.size();
-	vector<vector<pair<int, ll>>> adj(n);
+	vector<vector<pair<int, ll>>> mst(n);
 	vector<bool> chosen(n);
 	vector<pair<int, ll>> min_edge(n, {-1, INF});
 	min_edge[0].second = 0LL;
@@ -12,8 +12,8 @@ vector<vector<pair<int, ll>>> prim(const vector<vector<ll>>& mat) {
 				u = v;
 		if (min_edge[u].second == INF) return {};
 		if (min_edge[u].first != -1) {
-			adj[u].push_back(min_edge[u]);
-			adj[min_edge[u].first].push_back({u, min_edge[u].second});
+			mst[u].push_back(min_edge[u]);
+			mst[min_edge[u].first].push_back({u, min_edge[u].second});
 		}
 		chosen[u] = true;
 		for (int v = 0; v < n; ++v)
@@ -21,5 +21,5 @@ vector<vector<pair<int, ll>>> prim(const vector<vector<ll>>& mat) {
 				min_edge[v] = {u, mat[u][v]};
 	}
 
-	return adj;
+	return mst;
 }

@@ -57,10 +57,20 @@ if the graph is not a DAG, order will be empty
 \bigo{V^2}
 
 Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge between \verb|u| and \verb|v|. \\
-Returns the adjacency list of the minimum spanning tree of the given graph. \\
+Returns the adjacency list of the undirected weighted minimum spanning tree of the given graph. \\
 If the graph is not connected it returns an empty list. \\
-\verb|auto adj = prim(adjacency_matrix);| \\
+\verb|auto mst = prim(adjacency_matrix);| \\
 \lstinputlisting{source/prim_mst_dense.cpp}
+
+
+\subsection{Prim's Algorithm (Sparse Graphs) - Minimum Spanning Tree}
+\bigo{Elog(V)}
+
+Takes an adjacency list as input \\
+Returns the adjacency list of the undirected weighted minimum spanning tree of the given graph. \\
+If the graph is not connected it returns an empty list. \\
+\verb|auto mst = prim(adjacency_list);| \\
+\lstinputlisting{source/prim_mst_sparse.cpp}
 
 
 \subsection{Kosaraju - Strongly Connected Components}
