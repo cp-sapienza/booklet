@@ -38,6 +38,12 @@ Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge b
 \verb|dist[u][v]| = \verb|-INF| if the path between \verb|u| and \verb|v| can be made arbitrarily short by going through a negative weight cycle
 \lstinputlisting{source/floyd_warshall.cpp}
 
+\subsection{0/1 BFS - SSSP with binary weights}
+\bigo{V+E}, handles graphs where all edges have a weight of $0$ or $1$.
+\verb|vector<ll> dist = bfs01(adj_list, src);| \\
+\verb|dist[u]| := distance between node \verb|src| and \verb|u| \\
+\verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|u|
+\lstinputlisting{source/bfs01.cpp}
 
 \subsection{Khan - Topological Sort}
 \bigo{V + E}
