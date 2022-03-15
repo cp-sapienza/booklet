@@ -1,5 +1,4 @@
 \section{Trees}
-\todo{Centroid decomposition}
 
 \subsection{Binary Lifting / LCA}
 \bigo{NlogN} time and space per construction, \bigo{logN} per query
@@ -9,5 +8,16 @@
 \lstinputlisting{source/Tree.cpp}
 
 \subsection{Heavy Light Decomposition}
-\bigo{N} construction and memory usage, \bigo{Nlog^2N} queries and updates on tree paths.
+\bigo{N} construction and memory usage, \bigo{log^2N} queries and updates on tree paths.
+Builds a segment tree on the tree, and can do all things a lazy segment tree can do but on paths
 \lstinputlisting{source/HLD.cpp}
+
+\subsection{Centroid Decomposition}
+\bigo{NlogN} complexity, \bigo{N} memory usage.
+A centroid is a vertex that if removed splits the tree in components of size <= n/2.
+Centroid Decomposition works by recursively splitting the tree and its subtrees
+at the centroid, producing \bigo{log N} layers of subtrees. 
+You can add a visit after finding the centroid to calculate what you need for each subtree
+
+\lstinputlisting{source/centroid.cpp}
+
