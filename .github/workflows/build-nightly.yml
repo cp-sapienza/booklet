@@ -37,3 +37,9 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: main.pdf
+
+      - name: Remove old nightlies
+      - uses: dev-drprasad/delete-older-releases@v0.2.0
+        with:
+          keep_latest: 1
+          delete_tag_pattern: AutoBuild
