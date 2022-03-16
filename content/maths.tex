@@ -145,3 +145,37 @@ Given $x_0, x_1, ..., x_{k-1}$ calculates $x_n \% mod$.
 Fibonacci: \texttt{linear\_recurrence(\{1,1\},\{\},\{0,1\},n,mod);}\\
 Requires \verb|mat_mul|, \verb|mat_pow|
 \lstinputlisting{source/linear_recurrences.cpp}
+
+
+\subsection{Binomial Distribution}
+Discrete probability distribution of the number of successes in a sequence
+of $n$ indipendent Bernoulli trials, each with a probability $p$ of success
+
+\[P(X = k) = \binom{n}{k}p^k(1 - p)^{n - k}\]
+\[E(X) = np,\,Var(X) = np(1 - p)\]
+
+
+\subsection{Negative Binomial Distribution}
+Discrete probability distribution of the number of successes in a sequence
+of $n$ indipendent trials, each with a probability $p$ of success,
+before $r$ failures
+
+\[P(X = k) = \binom{k + r - 1}{r - 1}(1 - p)^kp^r\]
+\[E(X) = \frac{rp}{(1 - p)^2},\,Var(X) = np(1 - p)\]
+
+
+\subsection{Geometric Distribution}
+Discrete probability distribution of the number of Bernoulli trials,
+each with a probability $p$ of success, needed to get one success
+
+\[P(X = k) = (1 - p)^kp\]
+\[E(X) = \frac{1}{p},\,Var(X) = \frac{1 - p}{p^2}\]
+
+
+\subsection{Poisson Distribution}
+Discrete probability distribution of the number of events occurring
+in a fixed interval $t$ if these events occur with a mean rate of $\lambda / t$
+and indipendently of the time since the last event
+
+\[P(X = k) = e^{-\lambda}\frac{\lambda^k}{k!}\]
+\[E(X) = \lambda,\,Var(X) = \lambda\]
