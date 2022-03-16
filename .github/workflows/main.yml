@@ -12,21 +12,30 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::AutoBuild_$(date +"%Y.%m.%d_%H-%M")"
+          
       - name: Set up Git repository
         uses: actions/checkout@v2
+        
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
+        
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
+        
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           files: main.pdf
