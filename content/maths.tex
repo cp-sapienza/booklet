@@ -149,7 +149,7 @@ Requires \verb|mat_mul|, \verb|mat_pow|
 
 \subsection{Binomial Distribution}
 Discrete probability distribution of the number of successes in a sequence
-of $n$ indipendent Bernoulli trials, each with a probability $p$ of success
+of $n$ indipendent Bernoulli trials, each with a probability $p$ of success.
 
 \[P(X = k) = \binom{n}{k}p^k(1 - p)^{n - k}\]
 \[E(X) = np,\,Var(X) = np(1 - p)\]
@@ -158,7 +158,7 @@ of $n$ indipendent Bernoulli trials, each with a probability $p$ of success
 \subsection{Negative Binomial Distribution}
 Discrete probability distribution of the number of successes in a sequence
 of $n$ indipendent trials, each with a probability $p$ of success,
-before $r$ failures
+before $r$ failures.
 
 \[P(X = k) = \binom{k + r - 1}{r - 1}(1 - p)^kp^r\]
 \[E(X) = \frac{rp}{(1 - p)^2},\,Var(X) = np(1 - p)\]
@@ -166,7 +166,7 @@ before $r$ failures
 
 \subsection{Geometric Distribution}
 Discrete probability distribution of the number of Bernoulli trials,
-each with a probability $p$ of success, needed to get one success
+each with a probability $p$ of success, needed to get one success.
 
 \[P(X = k) = (1 - p)^kp\]
 \[E(X) = \frac{1}{p},\,Var(X) = \frac{1 - p}{p^2}\]
@@ -175,7 +175,43 @@ each with a probability $p$ of success, needed to get one success
 \subsection{Poisson Distribution}
 Discrete probability distribution of the number of events occurring
 in a fixed interval $t$ if these events occur with a mean rate of $\lambda / t$
-and indipendently of the time since the last event
+and indipendently of the time since the last event.
 
 \[P(X = k) = e^{-\lambda}\frac{\lambda^k}{k!}\]
 \[E(X) = \lambda,\,Var(X) = \lambda\]
+
+
+\subsection{(Continuous) Uniform Distribution}
+Continuous probability distribution that describes an experiment
+where there is an arbitrary outcome that lies between $a$ and $b$.
+
+\[f(x) =
+	\begin{cases}
+		\frac{1}{b-a} & a < x < b \\
+		0 & \textrm{otherwise}
+	\end{cases}
+\]
+\[E(X) = \frac{a + b}{2},\,Var(X) = \frac{(b - a)^2}{12}\]
+
+
+\subsection{Normal Distribution}
+Continuous probability distribution used to model phenomena that have
+a default behaviour and cumulative possible deviations from that behaviour.
+
+\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x - \mu)^2}{2\sigma^2}}\]
+\[E(X) = \mu,\,Var(X) = \sigma^2\]
+
+
+\subsection{Exponential Distribution}
+Continuous probability distribution of the times between events
+in a Poisson process of parameter $\lambda$.
+It's the continuous analogue of the geometric distribution and
+it has the property of being memoryless.
+
+\[f(x) =
+	\begin{cases}
+		\lambda e^{-\lambda x} & x \ge 0 \\
+		0 & \textrm{otherwise}
+	\end{cases}
+\]
+\[E(X) = \frac{1}{\lambda},\,Var(X) = \frac{1}{\lambda^2}\]
