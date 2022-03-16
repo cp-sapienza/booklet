@@ -1,20 +1,15 @@
-name: Build LaTeX document
+name: Test build on pull requests
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate release tag
-        id: tag
-        run: |
-          echo "::set-output name=release_tag::AutoBuild_$(date +"%Y.%m.%d_%H-%M")"
-
       - name: Set up Git repository
         uses: actions/checkout@v2
 
@@ -31,9 +26,3 @@ jobs:
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: main.pdf
