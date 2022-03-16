@@ -15,7 +15,7 @@ auto mo_queries(vector<MoQuery>& queries) {
 	auto remove = [&](int idx) {};
 	auto getresult = [&]() { return 0; };
 
-	sort(queries.begin(), queries.end());
+	sort(all(queries));
 	int left = 0, right = -1;
 	vector<int> result(queries.size());
 
