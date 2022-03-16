@@ -1,2 +1,16 @@
 \section{Linear programming}
 \todo{Simplex, gaussian elimination, matrices}
+
+
+\subsection{Matrix multiplication \& power}
+Functions for matrix-matrix multiplication, matrix-vector multiplication and matrix power. All elements are calculated modulo \verb|mod|. If \verb|mod| $> 2^{32}$, \verb|mod_mul| must be used instead of \verb|*| for multiplication inside of \verb|mat_mul|
+\lstinputlisting{source/matrix_mult_pow.cpp}
+
+\subsection{Linear recurrences}
+Solve for the n-th term of a linear recurrence in \bigo{(k+h)^3logn}.\\
+$x_i = a_0 x_{i-1} + ... + a_{k-1} x_{i-k} \;\; + \;\; b_0 + b_1 i + ... + b_{h-1} i^h$ \\
+Given $x_0, x_1, ..., x_{k-1}$ calculates $x_n \% mod$.
+
+Fibonacci: \texttt{linear\_recurrence(\{1,1\},\{\},\{0,1\},n,mod);}\\
+Requires \verb|mat_mul|, \verb|mat_pow|
+\lstinputlisting{source/linear_recurrences.cpp}
