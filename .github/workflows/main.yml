@@ -27,6 +27,6 @@ jobs:
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
       - name: Release
-        uses: softprops/action-gh-release@v1]
+        uses: softprops/action-gh-release@v1
         with:
           files: main.pdf
