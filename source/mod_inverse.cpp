@@ -1,3 +1,5 @@
-int mod_inverse(int x, int mod) {
-	return bin_expo(x, mod - 2, mod);
+ll mod_inverse(ll n, ll mod) {
+	auto [x,y,g] = egcd(n, mod);
+	if(g != 1) return -1;
+	return (x % mod + mod) % mod;
 }

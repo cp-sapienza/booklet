@@ -24,19 +24,13 @@ Requires \verb|mod_mul(ll, ll, ll)|
 \lstinputlisting{source/bin_expoll.cpp}
 
 
-\subsection{Modulo Inverse}
+\subsection{Modular Inverse}
 \bigo{logN} Time
 
-Returns ${x^{-1}}$\:\%\:mod
+Returns ${x^{-1}}$\:\%\:mod. For prime moduli, the answer always exists. For non prime moduli, returns $-1$ if no answer exists, i.e. if $gcd(n,mod) \neq 1$.
 
-Works with \verb|int| \\
-Requires \verb|bin_expo(int, int, int)|
+Requires \verb|egcd(ll, ll)|
 \lstinputlisting{source/mod_inverse.cpp}
-
-
-Works with \verb|long long| \\
-Requires \verb|bin_expoll(ll, ll, ll)|
-\lstinputlisting{source/mod_inversell.cpp}
 
 
 \subsection{Factorial}
