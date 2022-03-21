@@ -50,14 +50,25 @@ Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and
 \subsection{Treap}
 
 Stores a sequence of values and allows access by index. Supports \texttt{split} and \texttt{merge} operations, and generic queries and lazy updates on ranges. Subsequence reversal and range sums are implemented as an example, change \texttt{Treap::recalc} and \texttt{Treap::push} (and fields in \texttt{Treap} if needed) to implement new operations.
-The operations modify the tree, so always reassign the tree to the return value of operations: \texttt{t = insert(t, i, val)}.
+The operations modify the tree, so always reassign the tree to the return value of operations: \texttt{t = insert(t, i, val)}. To perform a range query/update, use \texttt{range\_operation}.
 All operations \bigo{logN}.
 
-To perform a range query/update, use \texttt{range\_operation}:
-
+Usage:
 \begin{lstlisting}
+Treap *t = NULL;
+t = insert(t, i, s[i]);
+
+int value;
+t = erase(t, pos, &value); // third argument can also be NULL
+
+auto [l,r] = split(t, pos);
+
 t = range_operation(t, a, b, [](Treap *u) {
 	u->rev ^= 1;
+});
+
+visit(t, [](Treap *u) {
+	cout << u->val;
 });
 \end{lstlisting}
 \lstinputlisting{source/treap.cpp}
