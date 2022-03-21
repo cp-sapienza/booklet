@@ -88,11 +88,8 @@
 
 % Spacing around section and subsection titles
 
-% \titlespacing*{\section}
-% {-2pt}{2ex plus -1ex minus .2ex}{1.5ex plus .2ex}
-
-%\titlespacing*{\subsection}
-%{-2pt}{2ex plus -1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\section}{-2pt}{2ex}{1.5ex}
+\titlespacing*{\subsection}{-2pt}{2ex}{1.5ex}
 
 % \renewcommand{\thesection}{\arabic{section}}
 
@@ -113,8 +110,8 @@
 \lstset{literate={^}{\caret}{1} {~}{\tilde}{1} {\{}{\nicelbrace}{1} {\}}{\nicerbrace}{1}}
 \lstset{emptylines=*1}
 \lstset{inputencoding=utf8}
-% \lstset{aboveskip=3pt}
-% \lstset{belowskip=2pt}
+\lstset{aboveskip=3pt}
+\lstset{belowskip=2pt}
 % \lstset{postbreak=\mbox{\textcolor{blue}{$\hookrightarrow$}\space}}
 
 \lstdefinelanguage{raw}{} % Raw language, no keywords.
