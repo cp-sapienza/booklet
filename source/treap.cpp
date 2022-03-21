@@ -104,7 +104,7 @@ Treap *range_operation(Treap *u, int a, int b, Op op) {
 template<typename Op>
 void visit(Treap *u, Op op) {
 	if(!u) return;
-    u->push();
+	u->push();
 	visit(u->left, op);
 	op(u);
 	visit(u->right, op);
