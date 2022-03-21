@@ -1,5 +1,5 @@
 \section{Data structures}
-\todo{Treap, Sparse Segment Tree, lower bound in fenwick/segment, link-cut tree}
+\todo{Sparse Segment Tree, lower bound in fenwick/segment, link-cut tree}
 
 \subsection{Ordered set/map}
 \lstinputlisting{source/pbds-set.cpp}
@@ -46,3 +46,18 @@ Keeps the minimum over a sliding window, allows for inserting elements to the ri
 \subsection{Mo queries}
 Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and getresult functions.
 \lstinputlisting{source/mo_queries.cpp}
+
+\subsection{Treap}
+
+Stores a sequence of values and allows access by index. Supports \texttt{split} and \texttt{merge} operations, and generic queries and lazy updates on ranges. Subsequence reversal and range sums are implemented as an example, change \texttt{Treap::recalc} and \texttt{Treap::push} (and fields in \texttt{Treap} if needed) to implement new operations.
+The operations modify the tree, so always reassign the tree to the return value of operations: \texttt{t = insert(t, i, val)}.
+All operations \bigo{logN}.
+
+To perform a range query/update, use \texttt{range\_operation}:
+
+\begin{lstlisting}
+t = range_operation(t, a, b, [](Treap *u) {
+	u->rev ^= 1;
+});
+\end{lstlisting}
+\lstinputlisting{source/treap.cpp}
