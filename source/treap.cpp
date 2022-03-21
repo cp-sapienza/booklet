@@ -91,7 +91,7 @@ Treap::Val find(Treap *u, int pos) {
 	return u->val;
 }
 
-// Perform some operation on range [a,b]
+// Perform some operation op on range [a,b]
 template<typename Op>
 Treap *range_operation(Treap *u, int a, int b, Op op) {
 	auto [l,mr] = split(u, a);
@@ -100,10 +100,12 @@ Treap *range_operation(Treap *u, int a, int b, Op op) {
 	return merge(l, merge(m, r));
 }
 
-void visit(Treap *u) {
+// Execute op on each node, from left to right
+template<typename Op>
+void visit(Treap *u, Op op) {
 	if(!u) return;
-	u->push();
-	visit(u->left);
-	cout << u->val;
-	visit(u->right);
+    u->push();
+	visit(u->left, op);
+	op(u);
+	visit(u->right, op);
 }
