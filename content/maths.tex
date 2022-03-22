@@ -27,7 +27,7 @@ Requires \verb|mod_mul(ll, ll, ll)|
 \subsection{Modular Inverse}
 \bigo{logN} Time
 
-Returns ${x^{-1}}$\:\%\:mod. For prime moduli, the answer always exists. For non prime moduli, returns $-1$ if no answer exists, i.e. if $gcd(n,mod) \neq 1$.
+Returns ${x^{-1}}$\:\%\:mod. For prime moduli, the answer always exists. For non prime moduli, returns $-1$ if no answer exists, i.e. if \verb|gcd(n,mod)|$ \neq 1$.
 
 Requires \verb|egcd(ll, ll)|
 \lstinputlisting{source/mod_inverse.cpp}
@@ -37,7 +37,7 @@ Requires \verb|egcd(ll, ll)|
 \bigo{N} Time
 
 Initializes \verb|factorial| and \verb|inv_factorial| \\
-If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*| \\
+If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 and \verb|mod_inversell(ll, ll)| must be used instead of \verb|mod_inverse(int, int)|
 
 Requires \verb|mod_inverse(int, int)|
@@ -48,28 +48,26 @@ Requires \verb|mod_inverse(int, int)|
 \bigo{1} Time
 
 Computes $\binom{n}{k}$\:\%\:mod \\
-If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*|
-
+If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/binomial_coefficient.cpp}
 
 \subsection{Catalan Number}
 \bigo{1} Time
 
-Computes the n-th Catalan number
+Computes the n-th Catalan number, $C_n = \frac{1}{n+1}\binom{2n}{n}$
 
-Some examples of problems solved by Catalan Numbers are:
+Problems solved by Catalan Numbers:
 \begin{itemize}
 	\item Number of correct bracket sequence consisting of $n$ opening and $n$ closing brackets
 	\item Number of rooted full binary tree with $n + 1$ leaves
 	\item Number of triangulations of a convex polygon with $n + 2$ sides
 	\item Number of ways to connect $2n$ points on a circle to form $n$ disjoint chords
-	\item Number of monotonic lattice paths from point $(0, 0)$ to point $(n, n)$ in a square of $n \times n$, which do not pass above the main diagonal 
+	\item Number of monotonic lattice paths from point $(0, 0)$ to point $(n, n)$ in a square of $n \times n$, which do not pass above the main diagonal
 \end{itemize}
 
 
-If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*|
-
+If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/catalan_number.cpp}
 

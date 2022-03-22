@@ -50,7 +50,6 @@ pair<Treap*,Treap*> split(Treap* u, int pos) {
 		return {u, t};
 	}
 }
-
 Treap *merge(Treap* left, Treap* right) {
 	if(!left) return right;
 	if(!right) return left;
@@ -65,13 +64,11 @@ Treap *merge(Treap* left, Treap* right) {
 		return right;
 	}
 }
-
 Treap *insert(Treap* u, int pos, Treap::Val v) {
 	if(u) u->push();
 	auto [l, r] = split(u, pos);
 	return merge(l, merge(new Treap(v), r));
 }
-
 // If val is provided, it stores the deleted value
 Treap* erase(Treap* u, int pos, Treap::Val *val = NULL) {
 	if(u) u->push();
@@ -81,7 +78,6 @@ Treap* erase(Treap* u, int pos, Treap::Val *val = NULL) {
 	delete r1;
 	return merge(l, r2);
 }
-
 Treap::Val find(Treap *u, int pos) {
 	if(!u) return -1; // pos out of bounds
 	u->push();
@@ -90,7 +86,6 @@ Treap::Val find(Treap *u, int pos) {
 	if(ls < pos) return find(u->right, pos-ls-1);
 	return u->val;
 }
-
 // Perform some operation op on range [a,b]
 template<typename Op>
 Treap *range_operation(Treap *u, int a, int b, Op op) {
@@ -99,7 +94,6 @@ Treap *range_operation(Treap *u, int a, int b, Op op) {
 	op(m);
 	return merge(l, merge(m, r));
 }
-
 // Execute op on each node, from left to right
 template<typename Op>
 void visit(Treap *u, Op op) {

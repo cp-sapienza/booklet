@@ -19,9 +19,9 @@ and query, and complete the last query by inclusion-exclusion.
 \lstinputlisting{source/fenwick2d.cpp}
 
 \subsection{Lower bound on Fenwick tree}
-If there are no negative values finds the 
+If there are no negative values finds the
 smallest i such that sum(0, i)>=k in \bigo{logN}.
-If such i doesn't exists returns -1. 
+If such i doesn't exists returns -1.
 This function must be copied inside the struct
 \lstinputlisting{source/fenwick_lower_bound.cpp}
 
@@ -40,10 +40,10 @@ Creates \bigo{logN} new nodes per update.
 
 \subsection{Lower bound on segment tree}
 Finds the smallest i such that query(0, i).field>=k in \bigo{logN}.
-If such i doesn't exists returns -1. 
+If such i doesn't exists returns -1.
 Only works in lazy and basic segment trees.
 Only works if field is monotone. The field must be specified in cmp.
-Both functions must be copied inside the segment struct. 
+Both functions must be copied inside the segment struct.
 \lstinputlisting{source/segment_lower_bound.cpp}
 
 
@@ -76,7 +76,7 @@ t = insert(t, i, s[i]);
 int value;
 t = erase(t, pos, &value); // third argument can also be NULL
 
-auto [l,r] = split(t, pos);
+auto [l,r] = split(t, pos); // don't use t after this
 
 t = range_operation(t, a, b, [](Treap *u) {
 	u->rev ^= 1;
