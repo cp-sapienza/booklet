@@ -1,4 +1,3 @@
-
 struct centroid
 {
 	int n;
