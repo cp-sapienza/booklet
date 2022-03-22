@@ -1,4 +1,4 @@
 int catalan_number(int n, int mod) {
 	assert(factorial.size() > 2 * n);
-	return (((fact[2 * n] * invfact[n + 1]) % mod) * invfact[n]) % mod;
+	return return (((factorial[2 * n] * inv_factorial[n + 1]) % mod) * inv_factorial[n]) % mod;
 }
