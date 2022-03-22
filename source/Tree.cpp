@@ -1,9 +1,9 @@
 class Tree {
-	vector<vector<int>> lift;
-	vector<int> depth;
+	vector<vi> lift;
+	vi depth;
 	int dim;
 
-	void dfs(vector<int> &parent, vector<vector<int>> &adj, int u=0, int p=0, int d=0) {
+	void dfs(vi& parent, vector<vi>& adj, int u, int p, int d=0) {
 		parent[u] = p;
 		depth[u] = d;
 		for (int v : adj[u]) {
@@ -36,18 +36,18 @@ class Tree {
 
 public:
 
-	Tree(vector<vector<int>> &adj, int root=0) {
+	Tree(vector<vi>& adj, int root=0) {
 		int n = adj.size();
 		depth.resize(n, 0);
 
-		vector<int> parent(n, 0);
-		dfs(parent, adj, root);
+		vi parent(n, 0);
+		dfs(parent, adj, root, root);
 
 		dim = 0;
 		while (n >= (1 << dim))
 			++dim;
 
-		lift.resize(n, vector<int>(dim));
+		lift.resize(n, vi(dim));
 
 		for (int i = 0; i < n; ++i)
 			lift[i][0] = parent[i];
