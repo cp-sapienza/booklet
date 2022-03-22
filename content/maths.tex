@@ -58,7 +58,18 @@ If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \ve
 \subsection{Catalan Number}
 \bigo{1} Time
 
-Computes the n-th Catalan number \\
+Computes the n-th Catalan number
+
+Some examples of problems solved by Catalan Numbers are:
+\begin{itemize}
+	\item Number of correct bracket sequence consisting of $n$ opening and $n$ closing brackets
+	\item Number of rooted full binary tree with $n + 1$ leaves
+	\item Number of triangulations of a convex polygon with $n + 2$ sides
+	\item Number of ways to connect $2n$ points on a circle to form $n$ disjoint chords
+	\item Number of monotonic lattice paths from point $(0, 0)$ to point $(n, n)$ in a square of $n \times n$, which do not pass above the main diagonal 
+\end{itemize}
+
+
 If \verb|mod| $> 2^{32}$, \verb|mod_mul(ll, ll, ll)| must be used instead of \verb|*|
 
 \verb|init_factorials(int, int)| must be called before this function!
