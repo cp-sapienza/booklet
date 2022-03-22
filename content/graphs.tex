@@ -73,11 +73,11 @@ If the graph is not connected it returns an empty list. \\
 \lstinputlisting{source/prim_mst_sparse.cpp}
 
 
-\todo{Add compressed graph}
 \subsection{Kosaraju - Strongly Connected Components}
 \bigo{V + E}
 
 \verb|Kosaraju kosaraju{adjacency_list};| \\
 \verb|kosaraju.cc| will store the total number of strongly connected components \\
-\verb|kosaraju.comp[u]| will store an integer in range [0, cc) representing the strongly connected component of u
+\verb|kosaraju.comp[u]| will store an integer in range [0, cc) representing the strongly connected component of u \\
+\verb|kosaraju.cond_adj| will store the adjacency list of the condensation graph
 \lstinputlisting{source/kosaraju.cpp}
