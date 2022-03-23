@@ -133,6 +133,14 @@ Requires \verb|egcd(ll, ll)|
 \lstinputlisting{source/chinese_remainder_theorem.cpp}
 
 
+\subsection{Euler Phi function}
+$\phi(n) = $ number of integers in $[1\ldots n]$ coprime with n. If $n$ is prime, $\phi(n)=n-1$.
+
+\verb|phi| returns $\phi(n)$ in \bigo{\sqrt n\log n} \\
+\verb|phi_up_to_n| returns $\phi(i) \; \forall i \in [0 \ldots n]$ in \bigo{n \log\log n}
+
+\lstinputlisting{source/phi.cpp}
+
 \subsection{Binomial Distribution}
 Discrete probability distribution of the number of successes in a sequence
 of $n$ indipendent Bernoulli trials, each with a probability $p$ of success.
