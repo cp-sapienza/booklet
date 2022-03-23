@@ -12,18 +12,6 @@ struct Kosaraju {
 				radj[v].push_back(u);
 	}
 
-	void init_cond_adj() {
-		cond_adj.resize(cc);
-		for (int u = 0; u < ssize(adj); ++u)
-			for (int v : adj[u])
-				if (comp[u] != comp[v])
-					cond_adj[comp[u]].push_back(comp[v]);
-		for (vi& v : cond_adj) {
-			sort(all(v));
-			v.erase(unique(all(v)), v.end());
-		}
-	}
-
 	void dfs1(int u) {
 		vis[u] = true;
 		for (int v : adj[u])
@@ -38,6 +26,24 @@ struct Kosaraju {
 		for (int v : radj[u])
 			if (!vis[v])
 				dfs2(v);
+	}
+
+
+	void init_cond_adj()
+	{
+		vector<vi> complist(cc);
+		vi added(cc, -1);
+		cond_adj.resize(cc);
+
+		for(int i=0;i<ssize(adj);i++)
+			complist[comp[i]].push_back(i);
+		for(int i=0;i<cc;i++)
+			for(int from:complist[i])
+				for(int to:adj[from])
+					if(comp[to] != i && added[comp[to]]!=i) {
+						cond_adj[i].push_back(comp[to]);
+						added[comp[to]] = i;
+					}
 	}
 
 	Kosaraju(vector<vi>& g) {
