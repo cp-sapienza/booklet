@@ -13,3 +13,6 @@ clean:
 
 distclean: clean
 	-rm "$(PDFNAME)"
+
+print-todos:
+	grep --color '\\todo' content/*
