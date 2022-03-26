@@ -4,6 +4,6 @@
 \lstinputlisting{source/template.cpp}
 
 \subsection{Compiling with sanitize options}
-\begin{lstlisting}
+\begin{lstlisting}[breakatwhitespace=true]
 g++ -std=gnu++17 -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover file.cpp -o file
 \end{lstlisting}
