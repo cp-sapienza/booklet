@@ -1,5 +1,5 @@
 \section{Graphs}
-\todo{matching, euler tour, bridges+art. points}
+\todo{matching, euler tour, art. points}
 
 \subsection{Conventions}
 \begin{lstlisting}
@@ -71,6 +71,14 @@ Returns the adjacency list of the undirected weighted minimum spanning tree of t
 If the graph is not connected it returns an empty list. \\
 \verb|auto mst = prim(adjacency_list);| \\
 \lstinputlisting{source/prim_mst_sparse.cpp}
+
+
+\subsection{Bridges}
+\bigo{V + E}
+
+\verb|Bridges bridges{adjacency_list};| \\
+\verb|bridges.edges| is an edge list containing the bridges of the graph
+\lstinputlisting{source/bridges.cpp}
 
 
 \subsection{Kosaraju - Strongly Connected Components}
