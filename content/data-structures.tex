@@ -62,6 +62,14 @@ Keeps the minimum over a sliding window, allows for inserting elements to the ri
 Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and getresult functions.
 \lstinputlisting{source/mo_queries.cpp}
 
+\subsection{LineContainer - Convex Hull Trick}
+
+\bigo{logN} time per operation \\
+\verb|LineContainer cht;| \\
+\verb|cht.add(k, m);| to add a line of the form $y = kx + m$ \\
+\verb|cht.query(x);| to query the maximum value with coordinate $x$
+\lstinputlisting{source/line_container.cpp}
+
 \subsection{Treap}
 
 Stores a sequence of values and allows access by index. Supports \texttt{split} and \texttt{merge} operations, and generic queries and lazy updates on ranges. Subsequence reversal and range sums are implemented as an example, change \texttt{Treap::recalc} and \texttt{Treap::push} (and fields in \texttt{Treap} if needed) to implement new operations.
