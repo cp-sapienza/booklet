@@ -229,7 +229,7 @@ $\mu(1) = 1, \mu(p) = -1, \mu(p^k) = 0$ for every prime $p$
 Notation used:
 \[[<expr>] =
 	\begin{cases}
-		1 & if <expr> = true \\
+		1 & <expr> = true \\
 		0 & otherwise
 	\end{cases}
 \]
@@ -248,3 +248,14 @@ Number of coprime integers $x, y \in [1, n]$
 \[= \sum_{i=1}^{n}\sum_{j = 1}^{n}\sum_{d=1}^{n}\mu(d)[d | i][d | j] =\]
 \[= \sum_{d=1}^{n}\mu(d)\sum_{i = 1}^{n}[d | i]\sum_{j=1}^{n}[d | j] =\]
 \[= \sum_{d=1}^{n}\mu(d)\floor{\frac{n}{d}}^2\]
+
+
+\subsection{XOR of every number $x \in [1, n]$}
+\[1 \oplus \ldots \oplus n =
+	\begin{cases}
+		n & n \% 4 = 0 \\
+		1 & n \% 4 = 1 \\
+		n + 1 & n \% 4 = 2 \\
+		0 & n \% 4 = 3
+	\end{cases}
+\]
