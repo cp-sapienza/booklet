@@ -216,3 +216,35 @@ it has the property of being memoryless.
 \[\sum_{k=0}^{n}{\binom{n}{k}} = 2^n,\; \binom{n}{m}\binom{m}{k} = \binom{n}{k}\binom{n-k}{m-k}\]
 \[\sum_{k=0}^{n}{\binom{r+k}{k}} = \binom{r+n+1}{n},\; \sum_{k=m}^{n}{\binom{k}{m}} = \binom{n+1}{m+1}\]
 \[\sum_{k=0}^{n}{\binom{r}{k}\binom{s}{n-k} = \binom{r+s}{n}}\]
+
+
+\subsection{Möbius Function}
+$\mu(n)$ is a multiplicative function s.t.: \\
+$\mu(1) = 1, \mu(p) = -1, \mu(p^k) = 0$ for every prime $p$
+
+\todo{Compute $\mu(i)$ for every $i \in [1, n]$}
+
+
+\subsection{Möbius Inversion}
+Notation used:
+\[[<expr>] =
+	\begin{cases}
+		1 & if <expr> = true \\
+		0 & otherwise
+	\end{cases}
+\]
+
+Möbius Inversion definition:
+\[g(n) = \sum_{d|n}f(d) <=> f(n) = \sum_{d|n}g(d)\mu(\frac{n}{d})\]
+
+Property:
+\[\sum_{d|n}\mu(d) = [n = 1]\]
+
+Example where this property could be used:
+Number of coprime integers $x, y \in [1, n]$
+\[f(n) = \sum_{i=1}^{n}\sum_{j=1}^{n}[gcd(i,j) = 1] =\]
+\[= \sum_{i=1}^{n}\sum_{j = 1}^{n}\sum_{d|gcd(i,j)}\mu(d) =\]
+\[= \sum_{i=1}^{n}\sum_{j = 1}^{n}\sum_{d=1}^{n}\mu(d)[d | gcd(i, j)] =\]
+\[= \sum_{i=1}^{n}\sum_{j = 1}^{n}\sum_{d=1}^{n}\mu(d)[d | i][d | j] =\]
+\[= \sum_{d=1}^{n}\mu(d)\sum_{i = 1}^{n}[d | i]\sum_{j=1}^{n}[d | j] =\]
+\[= \sum_{d=1}^{n}\mu(d)\floor{\frac{n}{d}}^2\]
