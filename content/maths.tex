@@ -220,9 +220,16 @@ it has the property of being memoryless.
 
 \subsection{Möbius Function}
 $\mu(n)$ is a multiplicative function s.t.: \\
-$\mu(1) = 1, \mu(p) = -1, \mu(p^k) = 0$ for every prime $p$
+\[\mu(n) =
+	\begin{cases}
+		1 & n = 1 \\
+		0 & \textrm{$n$ has a squared prime factor} \\
+		(-1)^k & \textrm{$n$ is the product of $k$ different primes}
+	\end{cases}
+\]
 
-\todo{Compute $\mu(i)$ for every $i \in [1, n]$}
+\verb|mu_up_to_n| returns $\mu(i) \; \forall i \in [0, n]$ in \bigo{n \log\log n}
+\lstinputlisting{source/mobius_function.cpp}
 
 
 \subsection{Möbius Inversion}
