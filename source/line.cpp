@@ -1,10 +1,8 @@
 struct Line{
-    ld a, b, c; // b = 1 linee non verticali, 0 Linee verticali
+    ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines
     Line(ld a_, ld b_, ld c_) : a(a_), b(b_), c(c_) {}
     Line(Point<ll>& p1, Point<ll>& p2){
-        if(fabs(p1.x - p2.x) < EPS){
-            a = 1.0; b = 0.0; c = -p1.x;
-        }
+        if(fabs(p1.x - p2.x) < EPS) a = 1.0; b = 0.0; c = -p1.x;
         else{
             a = -(ld)(p1.y - p2.y) / (p1.x - p2.x);
             b =  1.0;
@@ -17,7 +15,7 @@ struct Line{
         return (fabs(a-l.a) < EPS) && (fabs(b-l.b) < EPS);}
     bool check_same(Line l) {                
         return this -> check_parallel(l) && (fabs(c-l.c) < EPS);}
-    bool check_orthogonal(Line l){ // m1 = -1/m2, m = a / (-b)
+    bool check_orthogonal(Line l){
         ld diff = fabs(a) - fabs(1/l.a); return (diff < EPS);}
     bool check_intersection(Line l, Point<ld>& p){ // if true, P is the intersection point
         if(this -> check_parallel(l)) return false;
@@ -31,7 +29,7 @@ struct Line{
 };
 ld dist_to_line(Point<ll> p, Line l){
     return fabs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
-Point<ld> closest_point(Point<ll> p, Line l) { // ritorna il punto più vicino a p su l
+Point<ld> closest_point(Point<ll> p, Line l) { // returns the closest point to p on l 
   Point<ld> ans;                         
   if (fabs(l.b) < EPS) {                         
     ans.x = -(l.c);
