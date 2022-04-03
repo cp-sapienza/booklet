@@ -17,7 +17,7 @@ struct SegmentTree {
 		st[p += n] = Node{v};
 		for(p /= 2; p > 0; p /= 2) st[p] = merge(st[2*p], st[2*p+1]);
 	}
-	Node query(int x, int y) // [x, y] {
+	Node query(int x, int y) { // [x, y]
 		Node left = unit, right = unit;
 		for(x += n, y += n + 1; x < y; x /= 2, y /= 2) {
 			if(x&1) left = merge(left, st[x++]);
