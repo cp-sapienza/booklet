@@ -30,8 +30,7 @@ struct Line{
 		return os << "(" << l.a << ", " << l.b  << ", " << l.c <<")"; }
 };
 ld dist_to_line(Point<ll> p, Line l){
-    return fabs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);
-}
+    return fabs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
 Point<ld> closest_point(Point<ll> p, Line l) { // ritorna il punto più vicino a p su l
   Point<ld> ans;                         
   if (fabs(l.b) < EPS) {                         
