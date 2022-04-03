@@ -2,7 +2,9 @@ struct Line{
     ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines
     Line(ld a_, ld b_, ld c_) : a(a_), b(b_), c(c_) {}
     Line(Point<ll>& p1, Point<ll>& p2){
-        if(fabs(p1.x - p2.x) < EPS) a = 1.0; b = 0.0; c = -p1.x;
+        if(fabs(p1.x - p2.x) < EPS){
+            a = 1.0; b = 0.0; c = -p1.x;
+        }
         else{
             a = -(ld)(p1.y - p2.y) / (p1.x - p2.x);
             b =  1.0;
