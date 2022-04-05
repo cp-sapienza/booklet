@@ -90,12 +90,13 @@ struct hld
 		// update for vertices
 		if(depth[a] > depth[b])
 			swap(a, b);
-		return seg.update(pos[a], pos[b], v);
+		seg.update(pos[a], pos[b], v);
+		return;
 		// update for edges
 		if(a == b)
 			return;
 		if(depth[a] > depth[b])
 			swap(a, b);
-		return seg.update(pos[heavy[a]], pos[b], v);
+		seg.update(pos[heavy[a]], pos[b], v);
 	}
 };
