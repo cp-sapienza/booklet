@@ -1,6 +1,6 @@
-array<vector<int>,2> manacher(const string& s) {
+array<vi,2> manacher(const string& s) {
 	int n = s.size();
-	array<vector<int>,2> p = {vector<int>(n), vector<int>(n)};
+	array<vi,2> p = {vi(n), vi(n)};
 	for(int k = 0; k < 2; k++)
 	for(int i = 0, l = 0, r = -1; i < n; i++) {
 		if(i+k <= r) p[k][i] = min(p[k][l+r-i-k], r - i);

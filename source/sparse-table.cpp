@@ -2,9 +2,9 @@ struct SparseTable {
 	// Any idempotent operation
 	int op(int a, int b) { return min(a, b); }
 
-	vector<vector<int>> tab;
-	SparseTable(const vector<int>& data) {
-		tab.push_back(vector<int>(data));
+	vector<vi> tab;
+	SparseTable(const vi& data) {
+		tab.push_back(vi(data));
 		for(int p = 0; (2<<p) <= ssize(data); ++p) {
 			tab.emplace_back(data.size() - (2<<p) + 1, 0);
 			for(int i = 0; i + (2<<p) <= ssize(data); i++)

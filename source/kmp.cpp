@@ -1,6 +1,6 @@
-vector<int> pi_function(string s) {
+vi pi_function(string s) {
 	int n = s.size();
-	vector<int> pi(n, 0);
+	vi pi(n, 0);
 	for(int i = 1, j = 0; i < n; i++) {
 		while(j > 0 && s[i] != s[j]) j = pi[j-1];
 		if(s[i] == s[j]) pi[i] = ++j;

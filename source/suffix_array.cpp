@@ -1,8 +1,8 @@
 struct SuffixArray {
-	vector<int> sa, rank, lcp;
+	vi sa, rank, lcp;
 	SuffixArray(const string& s) {
 		int n = s.size() + 1, cl = 256;
-		vector<int> c(n), cn(n), pn(n), cnt(max(n,cl));
+		vi c(n), cn(n), pn(n), cnt(max(n,cl));
 		iota(pn.begin(), pn.end(), 0);
 		sa = rank = c;
 		for(int i = 0; i < n-1; i++) c[i] = s[i];

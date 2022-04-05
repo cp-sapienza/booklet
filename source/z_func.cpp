@@ -1,6 +1,6 @@
-vector<int> z_function(string s) {
+vi z_function(string s) {
 	int n = s.size();
-	vector<int> z(n, 0);
+	vi z(n, 0);
 	for(int i = 1, l = 0, r = 0; i < n; i++) {
 		if(i <= r) z[i] = min(r-i+1, z[i-l]);
 		while(i+z[i] < n && s[i+z[i]] == s[z[i]]) z[i]++;

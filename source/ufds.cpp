@@ -1,5 +1,5 @@
 struct UFDS {
-	vector<int> parent, rank, sz;
+	vi parent, rank, sz;
 	int num_components;
 
 	UFDS(int N) : parent(N, 0), rank(N, 0), sz(N, 1), num_components(N) {
