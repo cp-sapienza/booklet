@@ -1,6 +1,5 @@
 \section{Maths}
-\todo{FFT, permutation to/from index}
-\todo{Game Theory, Grundy Theorem}
+\todo{Game Theory, Grundy Theorem, permutation to/from index}
 
 
 \subsection{Modular multiplication}
@@ -139,6 +138,23 @@ $\phi(n) = $ number of integers in $[1\ldots n]$ coprime with n. If $n$ is prime
 \verb|phi_up_to_n| returns $\phi(i) \; \forall i \in [0 \ldots n]$ in \bigo{n \log\log n}
 
 \lstinputlisting{source/phi.cpp}
+
+
+\subsection{Fast Fourier Transform}
+\bigo{(n + m) \log (n + m)}
+
+Given the \verb|a| and \verb|b| the coefficients of two polynomials: \\
+$A(x) = a_0 x^0 * \ldots * a_{n-1} x^{n-1}$, $B(x) = b_0 x^0 * \ldots * b_{m-1} x^{m-1}$ \\
+Let $C(x) = A(x) * B(x)$
+
+\verb|conv(a, b)| computes the coefficients of the polynomial $C(x)$ \\
+Works with \verb|long double|
+
+\verb|mod_conv(a, b, mod)| computes the coefficients modulo \verb|mod| \\
+Works with \verb|long long|
+
+\lstinputlisting{source/fft.cpp}
+
 
 \subsection{Probability Distributions}
 
