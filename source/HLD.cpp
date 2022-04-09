@@ -4,11 +4,7 @@ struct hld
 	vector<vi> adj;
 	int cur_pos;
 
-	LazyST seg = LazyST({});
-	// set this.seg to LazyST(data) s.t.
-	// data[pos[node]] = value[node] for vertices queries
-	// data[pos[node]] = value of edge(father[node] -> node)for edge queries (data[root] can be left unassigned)
-
+	LazyST seg{{}};
 
 	int dfs(int v)
 	{
@@ -38,7 +34,7 @@ struct hld
 		}
 	}
 
-	hld(vector<vi> const& ad) // adj is rooted in 0
+	hld(vector<vi> const& ad, vector<int> w, int root = 0)
 	{
 		adj = ad;
 		int n = ad.size();
@@ -47,9 +43,13 @@ struct hld
 		heavy = vi(n, -1);
 		head = vi(n);
 		pos = vi(n);
-		cur_pos = 0;
-		dfs(0);
-		decompose(0, 0);
+		cur_pos = root;
+		dfs(root);
+		decompose(root, root);
+		vector<int> data(ad.size());
+		for(int i=0;i<n;i++)
+			data[pos[i]] = w[i];
+		seg = LazyST(data);
 	}
 
 	// update is kinda the same, so consider copying and changing what's different

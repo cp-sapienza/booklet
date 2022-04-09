@@ -22,13 +22,13 @@ struct centroid
 		return p;
 	}
 
-	centroid(int p, vector<vi> const &ad)
+	centroid(vector<vi> const &ad)
 	{
 		adj = ad;
 		n = adj.size();
 		sz.resize(n);
 		rm.resize(n, 0);
-		deco(p);
+		deco(0);
 	}
 
 	void deco(int p) // important: in the custom visits DON'T visit nodes with rm[node] == true
