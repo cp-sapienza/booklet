@@ -1,2 +1,15 @@
 \section{Geometry}
 \todo{Polygons, circles, intersections, convex layers, triangulation}
+
+
+\subsection{Convex Hull}
+\bigo{N \log N} Time
+
+Returns the convex hull of the points in clockwise order: \\
+\verb|hull = convex_hull(points);|
+
+If you want to include collinear edges: \\
+\verb|hull = convex_hull(points, true);|
+
+Change \verb|P| to \verb|Point<ld>| if you are dealing with floating point numbers
+\lstinputlisting{source/convex_hull.cpp}
