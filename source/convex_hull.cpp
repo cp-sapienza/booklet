@@ -18,5 +18,6 @@ vector<P> convex_hull(vector<P> points, bool collinear_edges=false) {
         hull.pop_back();
         reverse(all(points));
     }
+    reverse(all(hull));
     return hull;
 }
