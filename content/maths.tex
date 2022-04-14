@@ -37,7 +37,7 @@ Requires \verb|egcd(ll, ll)|
 Initializes \verb|factorial| and \verb|inv_factorial| \\
 If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*|
 
-NOTE: This function works iff the modulo is not a divisor of $n!$
+NOTE: This function works iff the modulo is coprime with $n!$
 (for example $mod$ is a prime number strictly greater than $n$)
 
 Requires \verb|mod_inverse(int, int)|
