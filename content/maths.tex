@@ -52,6 +52,15 @@ If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/binomial_coefficient.cpp}
 
+
+\subsection{Lucas's Theorem}
+Let $m, n$ be non-negative integers and $p$ a prime number s.t: \\
+\[m = m_k p^k + m_{k-1} p^{k-1} + \ldots + m_1 p + m_0\]
+\[n = n_k p^k + n_{k-1} p^{k-1} + \ldots + n_1 p + n_0\]
+The following congruence relation holds:
+\[\binom{m}{n} \equiv \prod_{i=0}^k\binom{m_i}{n_i} \pmod{p}\]
+
+
 \subsection{Catalan Number}
 \bigo{1} Time
 
