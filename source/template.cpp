@@ -5,6 +5,7 @@ using namespace std;
 #define ssize(c) (int)c.size()
 
 using ll = long long;
+using ld = long double;
 using vi = vector<int>;
 using vll = vector<ll>;
 
