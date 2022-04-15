@@ -15,4 +15,4 @@ distclean: clean
 	-rm "$(PDFNAME)"
 
 print-todos:
-	grep --color '\\todo' content/*
+	grep --color '\\todo{' main.tex content/*
