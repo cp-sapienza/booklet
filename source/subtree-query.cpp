@@ -2,21 +2,23 @@ struct SubtreeSegment {
 	SegmentTree seg{{}};
 	vi sz, ord;
 	int curr_ord = 0;
-	int dfs(const vvi &ad, int p) {
+
+	int dfs(const vvi &ad, int p, int prev = -1) {
 		ord[p] = curr_ord++;
 		sz[p] = 1;
 		for(int x:ad[p])
-			sz[p] += dfs(ad, x);
+			if(x != prev)
+				sz[p] += dfs(ad, x, p);
 		return sz[p];
 	}
 
-	SubtreeSegment(const vvi &ad, const vi &w, int root) {
+	SubtreeSegment(const vector<vi> &ad, const vi &w, int root) {
 		int n = ssize(ad);
 		sz.resize(n);
 		ord.resize(n);
 		dfs(ad, root);
 		vi data(n);
-		rep(i, 0, ssize(ad))
+		for(int i=0;i<ssize(ad);i++)
 			data[ord[i]] = w[i];
 		seg = SegmentTree(data);
 	}
