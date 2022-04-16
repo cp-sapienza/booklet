@@ -18,7 +18,7 @@ struct SubtreeSegment {
 		ord.resize(n);
 		dfs(ad, root);
 		vi data(n);
-		for(int i=0;i<ssize(ad);i++)
+		for(int i=0;i<n;i++)
 			data[ord[i]] = w[i];
 		seg = SegmentTree(data);
 	}
