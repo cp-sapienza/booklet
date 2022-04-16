@@ -76,6 +76,32 @@ Problems solved by Catalan Numbers:
 \end{itemize}
 
 
+\subsection{Burnside's lemma}
+Let $G$ be a finite group that acts on a set $X$. \\
+For each $g$ in $G$ let $X^g$ denote the set of elements in $X$ invariant to $g$. \\
+The number of orbits $|X / G|$ is:
+\[|X / G| = \frac{1}{|G|} \sum_{g \in G}|X^g|\]
+
+It is easier to apply than it seems, here's an example: \\
+Count the number of rotationally distinct colouring of a cube using $n$ different colours.
+
+Two elements belong to the same orbit if one is the rotation of the other,
+so we have to count the number of orbits. \\
+There are 24 elements of $G$:
+
+\begin{enumerate}
+	\item The identity element: $n^6$ elements are invariant to it
+	\item 6 90-degree rotations: each has $n^3$ elements invariant to it
+	\item 3 180-degree rotations: each has $n^4$ elements invariant to it
+	\item 8 120-degree rotations: each has $n^2$ elements invariant to it
+	\item 6 180-degree rotations: each has $n^3$ elements invariant to it
+\end{enumerate}
+
+So, in total we have:
+\[|X / G| = \frac{n^6 + 6n^3 + 3n^4 + 8n^2 + 6n^3}{24} = \]
+\[= \frac{n^6 + 3n^4 + 12n^3 + 8n^3}{24}\]
+
+
 If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/catalan_number.cpp}
