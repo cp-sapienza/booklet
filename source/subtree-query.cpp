@@ -3,7 +3,7 @@ struct SubtreeSegment {
 	vi sz, ord;
 	int curr_ord = 0;
 
-	int dfs(const vvi &ad, int p, int prev = -1) {
+	int dfs(const vector<vi> &ad, int p, int prev = -1) {
 		ord[p] = curr_ord++;
 		sz[p] = 1;
 		for(int x:ad[p])
