@@ -10,7 +10,7 @@ struct MCMF {
 
 	MCMF(int N) :
 		N(N), ed(N), red(N), cap(N, vector<ll>(N)), flow(cap),
-        cost(cap), seen(N), dist(N), pi(N), par(N) {}
+		cost(cap), seen(N), dist(N), pi(N), par(N) {}
 
 	void addEdge(int from, int to, ll cap, ll cost) {
 		this->cap[from][to] = cap;
