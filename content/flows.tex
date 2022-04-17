@@ -14,7 +14,6 @@ for(int i = 0; i < m; i++) {
 	cin >> a >> b;
 	a--; b--; // Convert from 1-based input
 	adj[a][b] += 1; // Capacity 1, change if needed
-	adj[b][a] += 1;
 }
 for(int u = 0; u < n; u++)
 	for(int v = u+1; v < n; v++)
