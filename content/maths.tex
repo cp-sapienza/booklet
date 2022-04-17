@@ -1,5 +1,5 @@
 \section{Maths}
-\todo{Game Theory, Grundy Theorem, permutation to/from index}
+\todo{permutation to/from index}
 
 
 \subsection{Modular multiplication}
@@ -319,3 +319,22 @@ Number of coprime integers $x, y \in [1, n]$
 		0 & n \% 4 = 3
 	\end{cases}
 \]
+
+
+\subsection{Sprague-Grundy's Theorem}
+Mex = minimum non-negative integer not contained in a set
+
+Let's consider a two-player impartial game. \\
+The game is equivalent (if played optimally) to a Nim game with a single
+heap of size equal to the nimber (or Grundy value) of the state. \\
+The nimber $g$ of a state $x$ is defined as:
+
+$g(x)$ = $mex$(\{$g(y)$ for $y$ reachable from $x$ in one move\})
+
+From this formula it is obvious that the nimber of a losing state is always 0.
+
+In practice we could have multiple games simultaneously that share the same
+dp table of nimbers, every game is equivalent to a different heap in a Nim game.
+
+To solve the Nim game it is sufficient to take the XOR of every heap size.
+Player one wins if the result is different from zero, loses otherwise.
