@@ -131,6 +131,10 @@
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
+% \warning command
+\newcommand*{\TakeFourierOrnament}[1]{{%
+\fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+\newcommand*{\warning}{\TakeFourierOrnament{66}}
 
 \begin{document}
 \begin{multicols*}{3}

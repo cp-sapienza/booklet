@@ -4,6 +4,23 @@
 \subsection{Max flow - push relabel}
 % Thanks KACTL <3
 \bigo{V^2 \sqrt{E}}. After \verb|calc|, edges with positive \verb|f| contain the actual flow.
+\warning If there are multiple edges, or edges in both directions between two nodes, they must be added in a single call to \texttt{add\_edge}.
+Something like this works:
+\begin{lstlisting}
+PushRelabel f(n);
+vector<vi> adj(n, vi(n, 0));
+for(int i = 0; i < m; i++) {
+	int a, b;
+	cin >> a >> b;
+	a--; b--; // Convert from 1-based input
+	adj[a][b] += 1; // Capacity 1, change if needed
+	adj[b][a] += 1;
+}
+for(int u = 0; u < n; u++)
+	for(int v = u+1; v < n; v++)
+		if(adj[u][v] > 0 || adj[v][u] > 0)
+			f.add_edge(u, v, adj[u][v], adj[v][u]);
+\end{lstlisting}
 \lstinputlisting{source/push_relabel.cpp}
 
 \subsection{Maximum bipartite matching}
