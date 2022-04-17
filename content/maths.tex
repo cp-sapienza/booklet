@@ -54,7 +54,7 @@ If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 
 
 \subsection{Lucas's Theorem}
-Let $m, n$ be non-negative integers and $p$ a prime number s.t: \\
+Let $m, n$ be non-negative integers and $p$ a prime number s.t.: \\
 \[m = m_k p^k + m_{k-1} p^{k-1} + \ldots + m_1 p + m_0\]
 \[n = n_k p^k + n_{k-1} p^{k-1} + \ldots + n_1 p + n_0\]
 The following congruence relation holds:
@@ -170,6 +170,9 @@ Requires \verb|egcd(ll, ll)|
 
 \subsection{Euler Phi function}
 $\phi(n) = $ number of integers in $[1\ldots n]$ coprime with n. If $n$ is prime, $\phi(n)=n-1$.
+
+Useful related lemma: \\
+If $d$ is a divisor of $n$, then there are $\phi(n / d)$ numbers $i \leq n$ s.t. $gcd(i, n) = d$
 
 \verb|phi| returns $\phi(n)$ in \bigo{\sqrt n\log n} \\
 \verb|phi_up_to_n| returns $\phi(i) \; \forall i \in [0 \ldots n]$ in \bigo{n \log\log n}
