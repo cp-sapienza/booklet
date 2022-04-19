@@ -1,10 +1,18 @@
 \section{Geometry}
 \todo{Polygons, circles, intersections, convex layers, triangulation}
 
+\subsection{Point}
+Use \verb|ll| as type - avoid \verb|ld| if possible.
+\lstinputlisting{source/point.cpp}
+
+
+\subsection{Line}
+\lstinputlisting{source/line.cpp}
+
+
 
 \subsection{Convex Hull}
 \bigo{N \log N} Time
-
 Returns the convex hull of the points in counterclockwise order: \\
 \verb|hull = convex_hull(points);|
 
