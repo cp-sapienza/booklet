@@ -17,15 +17,17 @@ struct Point {
 	T cross(P p) const { return x*p.y - y*p.x; }
 	T cross(P a, P b) const { return (a-*this).cross(b-*this); }
 	T dist2() const { return x*x+y*y; }
-	ld dist(P from = {0, 0}) const { return sqrt((ld)(*this-from).dist2());}
+	ld dist(P from = {0, 0}) const { return sqrt((ld)(*this-from).dist2());}\
 	// angle to x-axis in interval [-pi, pi]
 	ld angle() const { return atan2(y, x); }
-    ld aob_angle(P o, P b) {  // returns angle aob in rad
+	// angle with custom center o in interval [0, pi]
+    ld aob_angle(P o, P b) { 
         return acos((*this-o).dot(b-o) / sqrt((*this-o).dist2() * (b-o).dist2()));}
 	P unit() const { return *this/dist(); } // makes dist()=1
 	P perp() const { return P(-y, x); } // rotates +90 degrees
 	P normal() const { return perp().unit(); }
-	// per ruotare in senso orario usa -theta, centro = c
+	// returns point p rotated ccw of theta degrees wrt center c
+	// clockwise rotation: use -theta, center = c
 	P ccw_rotation(const P& p, ld theta, const P c = P(0, 0)){
         ld rad = deg_to_rad(theta);
         return point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
