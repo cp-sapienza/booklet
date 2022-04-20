@@ -29,3 +29,16 @@ If you want to include collinear edges: \\
 
 Change \verb|P| to \verb|Point<ld>| if you are dealing with floating point numbers
 \lstinputlisting{source/convex_hull.cpp}
+
+
+\subsection{Kd-Tree}
+\bigo{\log N} per search
+
+Data structure for keeping Kd (2d actually) points in order \\
+\verb|KdTree tree{points};|
+
+Find the point with the smallest Euclidean distance to the given point \\
+\verb|P p = tree.nearest(from);|
+
+Uncomment the commented code to not include the point itself in the search
+\lstinputlisting{source/kd_tree.cpp}
