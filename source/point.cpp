@@ -21,19 +21,19 @@ struct Point {
 	// angle to x-axis in interval [-pi, pi]
 	ld angle() const { return atan2(y, x); }
 	// angle with custom center o in interval [0, pi]
-    ld aob_angle(P o, P b) { 
-        return acos((*this-o).dot(b-o) / sqrt((*this-o).dist2() * (b-o).dist2()));}
+	ld aob_angle(P o, P b) { 
+		return acos((*this-o).dot(b-o) / sqrt((*this-o).dist2() * (b-o).dist2()));}
 	P unit() const { return *this/dist(); } // makes dist()=1
 	P perp() const { return P(-y, x); } // rotates +90 degrees
 	P normal() const { return perp().unit(); }
 	// returns point p rotated ccw of theta degrees wrt center c
 	// clockwise rotation: use -theta, center = c
 	P ccw_rotation(const P& p, ld theta, const P c = P(0, 0)){
-        ld rad = deg_to_rad(theta);
-        return point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
-    bool collinear(P q, P r){return fabs(this -> cross(q, r)) < EPS;}
-    bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
-        return (q-p).cross((*this)-p) > 0;}
+		ld rad = deg_to_rad(theta);
+		return point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
+	bool collinear(P q, P r){return fabs(this -> cross(q, r)) < EPS;}
+	bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
+		return (q-p).cross((*this)-p) > 0;}
 	friend ostream& operator<<(ostream& os, P p) {
 		return os << "(" << p.x << ", " << p.y << ")"; }
 };
