@@ -76,6 +76,11 @@ Problems solved by Catalan Numbers:
 \end{itemize}
 
 
+If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
+\verb|init_factorials(int, int)| must be called before this function!
+\lstinputlisting{source/catalan_number.cpp}
+
+
 \subsection{Burnside's lemma}
 Let $G$ be a finite group that acts on a set $X$. \\
 For each $g$ in $G$ let $X^g$ denote the set of elements in $X$ invariant to $g$. \\
@@ -100,11 +105,6 @@ There are 24 elements of $G$:
 So, in total we have:
 \[|X / G| = \frac{n^6 + 6n^3 + 3n^4 + 8n^2 + 6n^3}{24} = \]
 \[= \frac{n^6 + 3n^4 + 12n^3 + 8n^2}{24}\]
-
-
-If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
-\verb|init_factorials(int, int)| must be called before this function!
-\lstinputlisting{source/catalan_number.cpp}
 
 
 \subsection{Prime sieve}
