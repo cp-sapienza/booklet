@@ -29,7 +29,7 @@ int point_inside_polygon(Point<ll> pt, vector<Point<ll>>& poli){
     bool on_polygon = false;
     ld sum = 0.0;
     for(int i = 0; i < n; i++){
-        if(pt == poli[i] || pt == poli[(i+1)%n] || pt.collinear(poli[i], poli[(i+1)%n])){ //on_segment invece di collinear
+        if(pt == poli[i] || pt == poli[(i+1)%n] || pt.on_segment(poli[i], poli[(i+1)%n])){ //on_segment invece di collinear
             return 0;
         }
         if(poli[(i+1)%n].ccw_check(pt, poli[i])) sum += poli[i].aob_angle(pt, poli[(i+1)%n]);
