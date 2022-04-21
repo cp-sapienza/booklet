@@ -340,3 +340,27 @@ dp table of nimbers, every game is equivalent to a different heap in a Nim game.
 
 To solve the Nim game it is sufficient to take the XOR of every heap size.
 Player one wins if the result is different from zero, loses otherwise.
+
+
+\subsection{Divide \& Conquer DP optimization}
+Optimization of problems with DP of the form:
+
+\[dp(i, j) = min_{0 \leq k \leq j}dp(i - 1, k - 1) + cost(k, j)\]
+
+Let $opt(i, j)$ the value of $k$ that minimizes the above expression.
+This optimization is doable iff $opt(i, j) \leq opt(i, j + 1) \; \forall i, j$
+
+Assuming $0 \leq i \leq N, \; 0 \leq j \leq M$ and $cost(i, j)$ takes constant time,
+then this approach improves the time complexity from \bigo{N^2 M} to \bigo{NM \log M}.
+
+Usage:
+\begin{lstlisting}
+for (int i = 0; i < M; ++i)
+	dp_old[i] = cost(0, i);
+
+for (int i = 1; i < N; ++i) {
+	compute(0, n - 1, 0, n - 1);
+	dp_old = dp_cur;
+}
+\end{lstlisting}
+\lstinputlisting{source/dnc_dp_optimization.cpp}
