@@ -350,7 +350,7 @@ Optimization of problems with DP of the form:
 Let $opt(i, j)$ the value of $k$ that minimizes the above expression.
 This optimization is doable iff $opt(i, j) \leq opt(i, j + 1) \; \forall i, j$
 
-Assuming $0 \leq i \leq N, \; 0 \leq j \leq M$ and $cost(i, j)$ takes constant time,
+Assuming $0 \leq i < N, \; 0 \leq j < M$ and $cost(i, j)$ takes constant time,
 then this approach improves the time complexity from \bigo{N^2 M} to \bigo{NM \log M}.
 
 Usage:
