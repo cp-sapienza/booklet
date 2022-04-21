@@ -25,7 +25,8 @@ bool check_convex(vector<Point<ll>>& poli){
 // returns 1/0/-1 if pt inside/on vertex or edge/outside poli
 int point_inside_polygon(Point<ll> pt, vector<Point<ll>>& poli){
     int n = ssize(poli);
-    if(n < 3) return -1;
+    if(n == 1) return -1;
+    if(n == 2) return (pt.on_segment(poli[0], poli[1]) == 0 ? -1 : 0);
     bool on_polygon = false;
     ld sum = 0.0;
     for(int i = 0; i < n; i++){

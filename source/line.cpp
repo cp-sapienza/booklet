@@ -18,7 +18,7 @@ struct Line{
     bool check_same(Line l) {                
         return this -> check_parallel(l) && (abs(c-l.c) < EPS);}
     bool check_orthogonal(Line l){
-        ld diff = abs(a) - abs(1/l.a); return (diff < EPS);}
+        return abs(a + 1/l.a) < EPS;}
     bool check_intersection(Line l, Point<ld>& p){ // if true, P is the intersection point
         if(this -> check_parallel(l)) return false;
         p.x = (l.b * c - b * l.c) / (l.a * b - a * l.b);
