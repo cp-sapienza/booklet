@@ -1,6 +1,9 @@
 \section{Linear programming}
 \todo{Simplex, gaussian elimination, matrices}
 
+\subsection{Gaussian elimination}
+Solves $A * x = b$. If there are multiple solutions, an arbitrary one is returned. Returns rank, or -1 if no solutions. Data in $A$ and $b$ is lost. \bigo{n^2 m}.
+\lstinputlisting{source/gaussian_elimination.cpp}
 
 \subsection{Matrix multiplication \& power}
 Functions for matrix-matrix multiplication, matrix-vector multiplication and matrix power. All elements are calculated modulo \verb|mod|. If \verb|mod| $> 2^{32}$, \verb|mod_mul| must be used instead of \verb|*| for multiplication inside of \verb|mat_mul|
