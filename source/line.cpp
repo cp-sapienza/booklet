@@ -2,7 +2,7 @@ struct Line{
 	ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines
 	Line(ld a_, ld b_, ld c_) : a(a_), b(b_), c(c_) {}
 	Line(Point<ll>& p1, Point<ll>& p2){
-		if(fabs(p1.x - p2.x) < EPS){
+		if(abs(p1.x - p2.x) < EPS){
 			a = 1.0; b = 0.0; c = -p1.x;
 		}
 		else{
@@ -22,7 +22,7 @@ struct Line{
 	bool check_intersection(Line l, Point<ld>& p){ // if true, P is the intersection point
 		if(this -> check_parallel(l)) return false;
 		p.x = (l.b * c - b * l.c) / (l.a * b - a * l.b);
-		if(fabs(b) > EPS) p.y = -(a * p.x + c);
+		if(abs(b) > EPS) p.y = -(a * p.x + c);
 		else p.y = -(l.a * p.x + c);
 		return true;
 	}
