@@ -38,6 +38,14 @@ This function must be copied inside the struct
 Creates \bigo{logN} new nodes per update.
 \lstinputlisting{source/segment-persistent.cpp}
 
+\subsection{Segment tree - sparse}
+\bigo{logN} per operation, \bigo{QlogN} memory (for Q = queries + updates).\\
+Works like a \verb|LazyST| but only creates nodes reached in queries and updates.\\
+This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX|).\\
+There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.\\
+Last tip: high \verb|inf| might cause overheads, so try to keep it low.
+\lstinputlisting{source/segment-sparse.cpp}
+
 \subsection{Lower bound on segment tree}
 Finds the smallest i such that query(0, i).field>=k in \bigo{logN}.
 If such i doesn't exists returns -1.
