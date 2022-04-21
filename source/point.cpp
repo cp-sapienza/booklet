@@ -31,7 +31,7 @@ struct Point {
 	P ccw_rotation(const P& p, ld theta, const P c = P(0, 0)){
         ld rad = deg_to_rad(theta);
         return point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
-    bool collinear(P q, P r){return fabs(this -> cross(q, r)) < EPS;}
+    bool collinear(P q, P r){return abs(this -> cross(q, r)) < EPS;}
     bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
         return (q-p).cross((*this)-p) > 0;}
 	bool on_segment(P A, P B){ // returns true if this is on segment AB
