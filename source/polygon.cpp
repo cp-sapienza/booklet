@@ -59,6 +59,9 @@ ld dist_point_poly(Point<ll> pt, vector<Point<ll>>& poli){
 	}
 	return best_dist;
 }
+// Returns the left subspace wrt AB
+// for the one on the right, call cut_poly with A, B and all vertices in Q
+// with the x negated and then negate the x of the result
 vector<Point<ld>> cut_poly(Point<ld> A, Point<ld> B, const vector<Point<ld>> &Q) {
   vector<Point<ld>> P;
   int n = ssize(Q);
