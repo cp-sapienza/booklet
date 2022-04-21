@@ -88,7 +88,7 @@
 
 % Spacing around section and subsection titles
 
-\titlespacing*{\section}{-2pt}{2ex}{1.5ex}
+% \titlespacing*{\section}{-2pt}{2ex}{1.5ex}
 % \titlespacing*{\subsection}{-2pt}{2ex}{1.5ex}
 
 % \renewcommand{\thesection}{\arabic{section}}
@@ -123,10 +123,9 @@
 
 \newcommand{\bigo}[1]{$\mathcal{O}(#1)$}
 
-% \definecolor{shadecolor}{HTML}{dddddd}
-% \newcommand{\todo}[1]{\begin{snugshade}\textbf{TODO: #1}\end{snugshade}}
 \definecolor{shadecolor}{named}{lightgray}
-\newcommand{\todo}[1]{\begin{shaded}\textbf{TODO: #1}\end{shaded}}
+%\newcommand{\todo}[1]{\begin{shaded}\textbf{TODO: #1}\end{shaded}}
+\newcommand{\todo}[1]{}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -139,9 +138,14 @@
 \begin{document}
 \begin{multicols*}{3}
 
-\todo{Page number/uni name in first page}
+\begin{center}
+  \huge Sapienza Università di Roma
+  \vspace{1.5em}
+\end{center}
 
 \tableofcontents
+\vfill\null
+\columnbreak
 \input{content/basics}
 \input{content/data-structures}
 \input{content/strings}

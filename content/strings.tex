@@ -1,5 +1,22 @@
 \section{Strings}
-\todo{Trie, suffix tree, maybe suffix automaton}
+\todo{suffix tree, maybe suffix automaton}
+
+
+\subsection{Trie}
+\verb|Trie trie;| \\
+\verb|trie.insert(s);|
+to insert a string \\
+\verb|trie.find(s);|
+returns true if the string is present in the trie \\
+\verb|auto u = trie.root();|
+to get the root of the Trie \\
+\verb|trie.move(u, c);|
+returns true if it is possible to move from node \verb|u| with character \verb|c|,
+if possible moves \verb|u| as a side effect \\
+\verb|trie.marker(u);|
+returns true if there's a string ending at node \verb|u| \\
+\lstinputlisting{source/trie.cpp}
+
 
 \subsection{Z Function}
 \bigo{N} Z construction, \bigo{N+M} search

@@ -75,6 +75,10 @@ Problems solved by Catalan Numbers:
 	\item Number of monotonic lattice paths from point $(0, 0)$ to point $(n, n)$ in a square of $n \times n$, which do not pass above the main diagonal
 \end{itemize}
 
+If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
+\verb|init_factorials(int, int)| must be called before this function!
+\lstinputlisting{source/catalan_number.cpp}
+
 
 \subsection{Burnside's lemma}
 Let $G$ be a finite group that acts on a set $X$. \\
@@ -100,11 +104,6 @@ There are 24 elements of $G$:
 So, in total we have:
 \[|X / G| = \frac{n^6 + 6n^3 + 3n^4 + 8n^2 + 6n^3}{24} = \]
 \[= \frac{n^6 + 3n^4 + 12n^3 + 8n^2}{24}\]
-
-
-If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
-\verb|init_factorials(int, int)| must be called before this function!
-\lstinputlisting{source/catalan_number.cpp}
 
 
 \subsection{Prime sieve}
@@ -341,3 +340,27 @@ dp table of nimbers, every game is equivalent to a different heap in a Nim game.
 
 To solve the Nim game it is sufficient to take the XOR of every heap size.
 Player one wins if the result is different from zero, loses otherwise.
+
+
+\subsection{Divide \& Conquer DP optimization}
+Optimization of problems with DP of the form:
+
+\[dp(i, j) = min_{0 \leq k \leq j}dp(i - 1, k - 1) + cost(k, j)\]
+
+Let $opt(i, j)$ the value of $k$ that minimizes the above expression.
+This optimization is doable iff $opt(i, j) \leq opt(i, j + 1) \; \forall i, j$
+
+Assuming $0 \leq i < N, \; 0 \leq j < M$ and $cost(i, j)$ takes constant time,
+then this approach improves the time complexity from \bigo{N^2 M} to \bigo{NM \log M}.
+
+Usage:
+\begin{lstlisting}
+for (int i = 0; i < M; ++i)
+	dp_old[i] = cost(0, i);
+
+for (int i = 1; i < N; ++i) {
+	compute(0, n - 1, 0, n - 1);
+	dp_old = dp_cur;
+}
+\end{lstlisting}
+\lstinputlisting{source/dnc_dp_optimization.cpp}
