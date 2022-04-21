@@ -14,11 +14,11 @@ struct Line{
 	Line(Point<ll>& p, ld m){
 		a = m; b = 1.0; c = -((a * p.x) + (b * p.y));}
 	bool check_parallel(Line l){
-		return (fabs(a-l.a) < EPS) && (fabs(b-l.b) < EPS);}
-	bool check_same(Line l) {
-		return this -> check_parallel(l) && (fabs(c-l.c) < EPS);}
+		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS);}
+	bool check_same(Line l) {                
+		return this -> check_parallel(l) && (abs(c-l.c) < EPS);}
 	bool check_orthogonal(Line l){
-		ld diff = fabs(a) - fabs(1/l.a); return (diff < EPS);}
+		return abs(a + 1/l.a) < EPS;}
 	bool check_intersection(Line l, Point<ld>& p){ // if true, P is the intersection point
 		if(this -> check_parallel(l)) return false;
 		p.x = (l.b * c - b * l.c) / (l.a * b - a * l.b);
@@ -30,20 +30,27 @@ struct Line{
 		return os << "(" << l.a << ", " << l.b  << ", " << l.c <<")"; }
 };
 ld dist_to_line(Point<ll> p, Line l){
-	return fabs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
+	return abs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
 Point<ld> closest_point(Point<ll> p, Line l) { // returns the closest point to p on l 
-	Point<ld> ans;
-	if (fabs(l.b) < EPS) {
-		ans.x = -(l.c);
-		ans.y = p.y;
-		return ans;
-	}
-	if (fabs(l.a) < EPS) {
-		ans.x = p.x;
-		ans.y = -(l.c);
-		return ans;
-	}
-	Line perpendicular = Line(p, -1/l.a);
-	l.check_intersection(perpendicular, ans);
+  Point<ld> ans;                         
+  if (abs(l.b) < EPS) {                         
+	ans.x = -(l.c);
+	ans.y = p.y;
 	return ans;
+  }
+  if (abs(l.a) < EPS) {                        
+	ans.x = p.x;
+	ans.y = -(l.c);
+	return ans;
+  }
+  Line perpendicular = Line(p, -1/l.a);
+  l.check_intersection(perpendicular, ans);
+  return ans;
+}
+// returns intersection point between line AB and segment pq
+Point<ld> intersec_line_seg(Point<ld> p, Point<ld> q, Point<ld> A, Point<ld> B){
+	ld a = B.y - A.y, b = A.x - B.x, c = B.x * A.y - A.x * B.y;
+	ld u = abs(a*p.x + b*p.y + c);
+	ld v = abs(a*q.x + b*q.y + c);
+	return Point<ld>((p.x * v + q.x * u) / (u+v), (p.y * v + q.y * u) / (u+v));
 }

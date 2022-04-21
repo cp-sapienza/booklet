@@ -1,14 +1,23 @@
 \section{Geometry}
 \todo{Polygons, circles, intersections, convex layers, triangulation}
 
+\subsection{Constants}
+\verb|EPS = 1e-9| default, check precision required by the problem and
+change it accordingly.
+\lstinputlisting{source/constants_geom.cpp}
+
+
 \subsection{Point}
 Use \verb|ll| as type - avoid \verb|ld| if possible.
 \lstinputlisting{source/point.cpp}
 
-
 \subsection{Line}
 \lstinputlisting{source/line.cpp}
 
+\subsection{Polygon}
+Store vertices in counterclockwise (ccw) order.
+Change \verb|vector<Point<ll>>| to another type if needed - strongly discouraged.
+\lstinputlisting{source/polygon.cpp}
 
 \subsection{Closest pair of points}
 
