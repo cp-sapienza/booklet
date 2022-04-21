@@ -39,7 +39,7 @@ struct Point {
 			&& this -> y <= max(A.y, B.y) && this -> y >= min(A.y, B.y)) return true;
 		else return false;
 	}
-		Point<ld> to_ld(){
+	Point<ld> to_ld(){
 		Point<ld> ldp((ld)(this -> x), (ld)(this -> y));
 		return ldp;
 	}
