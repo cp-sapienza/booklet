@@ -88,7 +88,7 @@
 
 % Spacing around section and subsection titles
 
-\titlespacing*{\section}{-2pt}{2ex}{1.5ex}
+% \titlespacing*{\section}{-2pt}{2ex}{1.5ex}
 % \titlespacing*{\subsection}{-2pt}{2ex}{1.5ex}
 
 % \renewcommand{\thesection}{\arabic{section}}
@@ -138,9 +138,14 @@
 \begin{document}
 \begin{multicols*}{3}
 
-\todo{Page number/uni name in first page}
+\begin{center}
+  \huge Sapienza Università di Roma
+  \vspace{1.5em}
+\end{center}
 
 \tableofcontents
+\vfill\null
+\columnbreak
 \input{content/basics}
 \input{content/data-structures}
 \input{content/strings}
