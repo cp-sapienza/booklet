@@ -7,12 +7,12 @@ int lower_bound(int k)
 		return -1;
 	int p = 1;
 	Node part = unit;
-	while(p<n_po2)
+	while(p < n)
 	{
 		p <<= 1;
 		if(!cmp(merge(part, st[p]), k)) {
 			part = merge(part, st[p++]);
 		}
 	}
-	return p-n;
+	return p - n;
 }
