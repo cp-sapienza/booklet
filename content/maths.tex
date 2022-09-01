@@ -52,6 +52,11 @@ If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
 \lstinputlisting{source/binomial_coefficient.cpp}
 
+\subsection{Stars and Bars Theorem}
+\begin{enumerate}
+	\item Count of distinct k-tuples $(a_1, a_2, ..., a_k)$ of positive integers summing to n: \[\binom{n-1}{k-1}\]
+	\item Count of distinct k-tuples $(a_1, a_2, ..., a_k)$ of non negative integers summing to n: \[\binom{n+k-1}{k-1}\]
+\end{enumerate}
 
 \subsection{Lucas's Theorem}
 Let $m, n$ be non-negative integers and $p$ a prime number s.t.: \\
