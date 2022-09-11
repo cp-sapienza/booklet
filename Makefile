@@ -4,8 +4,8 @@ default: all
 .PHONY: clean
 
 all:
-	pdflatex main
-	pdflatex main
+	pdflatex --shell-escape main
+	pdflatex --shell-escape main
 	mv main.pdf "$(PDFNAME)"
 
 clean:
