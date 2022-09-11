@@ -1,4 +1,3 @@
-#pragma once
 #include "common.h"
 
 array<ll,3> egcd(ll a, ll b) {
