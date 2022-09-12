@@ -6,11 +6,7 @@
 - Trim lines and remove empty ones
 """
 
-import sys
-
-def usage(argv0):
-    print(f"Usage: {argv0} <input_file_name.cpp>")
-    sys.exit(1)
+import argparse
 
 def parse_file(source_name):
     with open(source_name) as fin:
@@ -53,9 +49,8 @@ def generate(source_name):
     print("\\end{lstlisting}")
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        usage()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file_name", help="The name of the input file.")
+    args = parser.parse_args()
 
-    source_name = sys.argv[1]
-    generate(source_name)
-
+    generate(args.input_file_name)
