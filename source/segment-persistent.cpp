@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct PersistentST {
 	using Value = ll;
 	Value unit = Value(0);

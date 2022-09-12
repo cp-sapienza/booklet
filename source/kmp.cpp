@@ -1,3 +1,5 @@
+#include "common.h"
+
 vi pi_function(string s) {
 	int n = s.size();
 	vi pi(n, 0);

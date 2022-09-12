@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Node {
 	ll h, p;
 	Node(char ch) { h = ch; p = 26; }

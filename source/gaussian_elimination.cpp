@@ -1,3 +1,5 @@
+#include "common.h"
+
 typedef vector<double> vd;
 const double eps = 1e-12;
 

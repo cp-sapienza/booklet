@@ -1,3 +1,5 @@
+#include "common.h"
+
 ll linear_recurrence(const vector<ll>& a, const vector<ll>& b, const vector<ll>& x, ll n, ll mod) {
 	int k = a.size(), h = b.size();
 	Matrix m(k+h, vector<ll>(k+h, 0));

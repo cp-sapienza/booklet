@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Fenwick2D {
 	vector<vector<ll>> ft;
 	Fenwick2D(int n, int m) {

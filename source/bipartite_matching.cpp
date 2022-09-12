@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<pair<int,int>> bipartite_matching(vector<pair<int,int>>& edges, int n, int m) {
 	PushRelabel pr(n+m+2);
 	for(auto e : edges) pr.add_edge(e.first, n+e.second, 1);

@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Fenwick {
 	using Value = ll;
 

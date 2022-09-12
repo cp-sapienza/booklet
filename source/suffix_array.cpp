@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct SuffixArray {
 	vi sa, rank, lcp;
 	SuffixArray(const string& s) {

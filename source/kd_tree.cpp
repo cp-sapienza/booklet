@@ -1,3 +1,5 @@
+#include "common.h"
+
 using T = ll;
 using P = Point<T>;
 

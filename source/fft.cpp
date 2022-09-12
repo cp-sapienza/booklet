@@ -1,3 +1,5 @@
+#include "common.h"
+
 using ld = long double;
 using C = complex<ld>;
 

@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct UFDS {
 	vi parent, rank, sz;
 	int num_components;

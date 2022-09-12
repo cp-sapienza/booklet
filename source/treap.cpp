@@ -1,3 +1,5 @@
+#include "common.h"
+
 mt19937 rng{42};
 
 struct Treap {

@@ -1,3 +1,5 @@
+#include "common.h"
+
 using P = Point<ll>;
 
 pair<P, P> closest_pair(vector<P> points) {

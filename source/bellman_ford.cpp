@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<ll> bellman_ford(vector<array<int, 3>>& edges, int v, int src) {
 	vector<ll> dist(v, INF);
 	dist[src] = 0LL;

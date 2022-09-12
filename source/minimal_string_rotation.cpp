@@ -1,3 +1,5 @@
+#include "common.h"
+
 int minimal_rotation(const string& t) {
 	string s = t+t;
 	int n = s.size(), res = 0, j, k;

@@ -1,3 +1,5 @@
+#include "common.h"
+
 array<vi,2> manacher(const string& s) {
 	int n = s.size();
 	array<vi,2> p = {vi(n), vi(n)};

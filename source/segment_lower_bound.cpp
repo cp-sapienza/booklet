@@ -1,3 +1,5 @@
+#include "common.h"
+
 bool cmp(Node nd, int k) {
 	return nd.field >= k;  // condition we want on result of lower_bound(k)
 }

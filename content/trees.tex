@@ -5,26 +5,26 @@
 
 \verb|Tree tree{adjacency_list};| // Creates a Tree rooted at 0 \\
 \verb|Tree tree{adjacency_list, root};| // Creates a Tree rooted at root
-\lstinputlisting{source/Tree.cpp}
+\snippet{source/Tree.cpp}
 
 \subsection{Heavy Light Decomposition}
 \bigo{N} construction and memory usage, \bigo{log^2N} queries and updates on tree paths.
 Builds a segment tree on the tree, and can do all things a lazy segment tree can do but on paths
-\lstinputlisting{source/HLD.cpp}
+\snippet{source/HLD.cpp}
 
 \subsection{Subtree queries}
 \bigo{N} construction and memory, \bigo{logN} time for query and update \\
-Maps each subtree to a range of a SegmentTree.\\ 
+Maps each subtree to a range of a SegmentTree.\\
 Works both on lazy and normal segments. Lazy is required for subtree update
 
-\lstinputlisting{source/subtree-query.cpp}
+\snippet{source/subtree-query.cpp}
 
 \subsection{Centroid Decomposition}
 \bigo{NlogN} complexity, \bigo{N} memory usage.
 A centroid is a vertex that if removed splits the tree in components of size <= n/2.
 Centroid Decomposition works by recursively splitting the tree and its subtrees
-at the centroid, producing \bigo{log N} layers of subtrees. 
+at the centroid, producing \bigo{log N} layers of subtrees.
 You can add a visit after finding the centroid to calculate what you need for each subtree
 
-\lstinputlisting{source/centroid.cpp}
+\snippet{source/centroid.cpp}
 

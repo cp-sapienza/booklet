@@ -1,3 +1,5 @@
+#include "common.h"
+
 ll bin_expoll(ll base, ll exp, ll mod) {
 	ll result = 1;
 	for (; exp > 0; exp >>= 1) {

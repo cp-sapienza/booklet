@@ -1,3 +1,5 @@
+#include "common.h"
+
 vi mu_up_to_n(int n) {
 	vi mu(n + 1), lpf(n + 1);
 	for (ll p = 2; p <= n; ++p)

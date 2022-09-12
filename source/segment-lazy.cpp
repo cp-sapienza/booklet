@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct LazyST {
 	using Node = ll;
 	using Update = ll;

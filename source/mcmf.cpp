@@ -1,3 +1,6 @@
+#include "common.h"
+
+// keep-line
 #include <ext/pb_ds/priority_queue.hpp>
 struct MCMF {
 	const ll INF = numeric_limits<ll>::max() / 4;

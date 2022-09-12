@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<vector<pair<int, ll>>> prim(const vector<vector<ll>>& mat) {
 	int n = mat.size();
 	vector<vector<pair<int, ll>>> mst(n);

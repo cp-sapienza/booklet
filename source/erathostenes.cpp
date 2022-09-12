@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<bool> eratosthenes(int n) {
 	vector<bool> prime(n+1, true);
 	prime[0] = prime[1] = false;

@@ -3,15 +3,15 @@
 
 \subsection{Gaussian elimination}
 Solves $A * x = b$. If there are multiple solutions, an arbitrary one is returned. Returns rank, or -1 if no solutions. Data in $A$ and $b$ is lost. \bigo{n^2 m}.
-\lstinputlisting{source/gaussian_elimination.cpp}
+\snippet{source/gaussian_elimination.cpp}
 
 \subsection{Gaussian elimination, binary}
 Solves $Ax = b$ over $\mathbb F_2$. If there are multiple solutions, one is returned arbitrarily. Returns rank, or -1 if no solutions. Data in $A$ and $b$ is lost. \bigo{n^2 m}.
-\lstinputlisting{source/gaussian_elimination_bin.cpp}
+\snippet{source/gaussian_elimination_bin.cpp}
 
 \subsection{Matrix multiplication \& power}
 Functions for matrix-matrix multiplication, matrix-vector multiplication and matrix power. All elements are calculated modulo \verb|mod|. If \verb|mod| $> 2^{32}$, \verb|mod_mul| must be used instead of \verb|*| for multiplication inside of \verb|mat_mul|
-\lstinputlisting{source/matrix_mult_pow.cpp}
+\snippet{source/matrix_mult_pow.cpp}
 
 \subsection{Linear recurrences}
 Solve for the n-th term of a linear recurrence in \bigo{(k+h)^3logn}.\\
@@ -20,4 +20,4 @@ Given $x_0, x_1, ..., x_{k-1}$ calculates $x_n \% mod$.
 
 Fibonacci: \texttt{linear\_recurrence(\{1,1\},\{\},\{0,1\},n,mod);}\\
 Requires \verb|mat_mul|, \verb|mat_pow|
-\lstinputlisting{source/linear_recurrences.cpp}
+\snippet{source/linear_recurrences.cpp}

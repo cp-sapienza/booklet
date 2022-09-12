@@ -1,3 +1,5 @@
+#include "common.h"
+
 int lower_bound(Value k) {
 	int t, res = 0;
 	t = 1 << (__builtin_clz(1)-__builtin_clz(ssize(ft)));

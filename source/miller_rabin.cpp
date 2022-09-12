@@ -1,3 +1,5 @@
+#include "common.h"
+
 bool miller_rabin(ll n) {
 	if (n < 2) return false;
 	int r = 0;

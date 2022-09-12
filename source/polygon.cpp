@@ -1,3 +1,5 @@
+#include "common.h"
+
 ld perimeter(vector<Point<ll>>& poli){
 	ld res = 0.0;
 	int n = ssize(poli);

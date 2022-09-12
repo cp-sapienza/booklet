@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Bridges {
 	vector<pair<int, int>> edges;
 	vector<bool> vis;

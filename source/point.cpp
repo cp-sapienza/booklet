@@ -1,3 +1,5 @@
+#include "common.h"
+
 ld deg_to_rad(ld d) { return d * PI / 180.0; }
 ld rad_to_deg(ld r) { return r * 180.0 / PI; }
 
@@ -21,7 +23,7 @@ struct Point {
 	// angle to x-axis in interval [-pi, pi]
 	ld angle() const { return atan2(y, x); }
 	// angle with custom center o in interval [0, pi]
-	ld aob_angle(P o, P b) { 
+	ld aob_angle(P o, P b) {
 		return acos((*this-o).dot(b-o) / sqrt((*this-o).dist2() * (b-o).dist2()));}
 	P unit() const { return *this/dist(); } // makes dist()=1
 	P perp() const { return P(-y, x); } // rotates +90 degrees

@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct hld
 {
 	vi parent, depth, heavy, head, pos;

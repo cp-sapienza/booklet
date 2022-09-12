@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct SparseST {
 
 	using Value = ll;

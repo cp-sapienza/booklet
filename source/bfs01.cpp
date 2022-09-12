@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<ll> bfs01(vector<vector<pair<int,int>>>& g, int start) {
 	deque<int> q;
 	q.push_back(start);

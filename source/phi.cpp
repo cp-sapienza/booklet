@@ -1,3 +1,5 @@
+#include "common.h"
+
 int phi(int n) {
 	int res = n;
 	for(int p = 2; p*p <= n; p++) {

@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<pair<ll, int>> factorize(ll n) {
 	vector<pair<ll, int>> factors;
 	while (n > 1) {

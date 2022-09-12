@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<pair<int,int>> lyndon(const string& s) {
 	int n = s.size(), j, k;
 	vector<pair<int,int>> fact;
