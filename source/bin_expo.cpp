@@ -1,3 +1,5 @@
+#include "common.h"
+
 int bin_expo(int base, int exp, int mod) {
 	int res = 1;
 	for (; exp > 0; exp >>= 1) {

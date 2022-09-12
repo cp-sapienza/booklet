@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<pair<ll,int>> substring_hashes(const string& s, int len) {
 	const ll b = 26, mx = 1000000007, my = 1000000009;
 

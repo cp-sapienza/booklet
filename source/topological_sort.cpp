@@ -1,3 +1,5 @@
+#include "common.h"
+
 vi topological_sort(vector<vi>& adj) {
 	int n = adj.size();
 	vi in_degree(n, 0);

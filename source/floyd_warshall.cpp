@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<vll> floyd_warshall(vector<vll>& g) {
 	int n = g.size();
 	vector<vll> dist = g;

@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct ArticulationPoints {
 	vector<bool> is_ap, vis;
 	vi tin, low;

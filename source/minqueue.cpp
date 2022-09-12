@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct MinQueue {
 	void push(int i, int v) {
 		// for maxqueue, change to <=

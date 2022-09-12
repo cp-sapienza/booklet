@@ -1,3 +1,5 @@
+#include "common.h"
+
 ll crt(const vector<ll>& a, const vector<ll>& n) {
 	ll res = a[0], l = n[0];
 	for (int i = 1; i < ssize(a); ++i) {

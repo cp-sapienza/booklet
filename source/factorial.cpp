@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<ll> factorial;
 vector<ll> inv_factorial;
 

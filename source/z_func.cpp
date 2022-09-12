@@ -1,3 +1,5 @@
+#include "common.h"
+
 vi z_function(string s) {
 	int n = s.size();
 	vi z(n, 0);

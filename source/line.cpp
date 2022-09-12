@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Line{
 	ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines
 	Line(ld a_, ld b_, ld c_) : a(a_), b(b_), c(c_) {}
@@ -15,7 +17,7 @@ struct Line{
 		a = m; b = 1.0; c = -((a * p.x) + (b * p.y));}
 	bool check_parallel(Line l){
 		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS);}
-	bool check_same(Line l) {                
+	bool check_same(Line l) {
 		return this -> check_parallel(l) && (abs(c-l.c) < EPS);}
 	bool check_orthogonal(Line l){
 		return abs(a + 1/l.a) < EPS;}
@@ -31,14 +33,14 @@ struct Line{
 };
 ld dist_to_line(Point<ll> p, Line l){
 	return abs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
-Point<ld> closest_point(Point<ll> p, Line l) { // returns the closest point to p on l 
-  Point<ld> ans;                         
-  if (abs(l.b) < EPS) {                         
+Point<ld> closest_point(Point<ll> p, Line l) { // returns the closest point to p on l
+  Point<ld> ans;
+  if (abs(l.b) < EPS) {
 	ans.x = -(l.c);
 	ans.y = p.y;
 	return ans;
   }
-  if (abs(l.a) < EPS) {                        
+  if (abs(l.a) < EPS) {
 	ans.x = p.x;
 	ans.y = -(l.c);
 	return ans;

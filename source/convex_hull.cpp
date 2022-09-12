@@ -1,3 +1,5 @@
+#include "common.h"
+
 using P = Point<ll>;
 
 vector<P> convex_hull(vector<P> points, bool collinear_edges=false) {

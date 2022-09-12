@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct SegmentTree {
 	using Node = int;
 	Node unit = Node(0); // s.t. for every x merge(x, unit) = x

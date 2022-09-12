@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct SparseTable {
 	// Any idempotent operation
 	int op(int a, int b) { return min(a, b); }

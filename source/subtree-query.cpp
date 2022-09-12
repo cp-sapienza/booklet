@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct SubtreeSegment {
 	SegmentTree seg{{}};
 	vi sz, ord;

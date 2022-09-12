@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct PushRelabel {
 	struct Edge {
 		int dest, back;

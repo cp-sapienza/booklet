@@ -1,4 +1,6 @@
-struct Trie { 
+#include "common.h"
+
+struct Trie {
 	struct Node {
 		bool marker = false;
 		int next[26];

@@ -1,3 +1,5 @@
+#include "common.h"
+
 using Matrix = vector<vector<ll>>;
 
 Matrix mat_mul(const Matrix& a, const Matrix& b, ll mod) {

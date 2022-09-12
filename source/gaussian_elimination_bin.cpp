@@ -1,3 +1,5 @@
+#include "common.h"
+
 typedef bitset<1000> bs;
 
 int solveLinear(vector<bs>& A, vi& b, bs& x, int m) {

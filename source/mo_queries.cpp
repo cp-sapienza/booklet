@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct MoQuery {
 	int x, y, idx; // [x, y]
 	static const int block_size = 450; // should be ~sqrt(MAXN)

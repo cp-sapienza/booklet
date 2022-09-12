@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct Kosaraju {
 	vector<vi> adj, radj, cond_adj;
 	vector<bool> vis;

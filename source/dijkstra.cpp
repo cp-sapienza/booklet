@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<ll> dijkstra(vector<vector<pair<int,ll>>>& adj, int src) {
 	int n = adj.size();
 	vector<ll> dist(n, INF);

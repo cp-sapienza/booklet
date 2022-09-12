@@ -1,3 +1,5 @@
+#include "common.h"
+
 struct centroid
 {
 	int n;

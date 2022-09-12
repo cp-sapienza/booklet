@@ -1,3 +1,5 @@
+#include "common.h"
+
 vector<ll> dp_old, dp_cur;
 
 // Complete this cost function

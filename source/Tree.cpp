@@ -1,3 +1,5 @@
+#include "common.h"
+
 class Tree {
 	vector<vi> lift;
 	vi depth;
