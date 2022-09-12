@@ -1,4 +1,6 @@
 #include "common.h"
+#include "miller_rabin.cpp"
+
 
 ll pollard_rho(ll n) {
 	if (n < 2) return n;

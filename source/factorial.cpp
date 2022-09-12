@@ -1,4 +1,5 @@
 #include "common.h"
+#include "mod_inverse.cpp"
 
 vector<ll> factorial;
 vector<ll> inv_factorial;

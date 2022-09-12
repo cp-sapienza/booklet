@@ -1,4 +1,5 @@
 #include "common.h"
+#include "factorial.cpp"
 
 int n_choose_k(int n, int k, int mod) {
 	assert(n >= k);

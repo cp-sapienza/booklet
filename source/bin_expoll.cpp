@@ -1,4 +1,5 @@
 #include "common.h"
+#include "mod_mul.cpp"
 
 ll bin_expoll(ll base, ll exp, ll mod) {
 	ll result = 1;
