@@ -1,3 +1,5 @@
+#include "common.h"
+
 array<ll,3> egcd(ll a, ll b) {
 	ll x = 1, y = 0;
 	ll x1 = 0, y1 = 1, a1 = a, b1 = b;

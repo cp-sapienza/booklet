@@ -1,4 +1,5 @@
-// keep-line
+#pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,7 +10,3 @@ using ll = long long;
 using ld = long double;
 using vi = vector<int>;
 using vll = vector<ll>;
-
-int main() {
-	cin.tie(0)->sync_with_stdio(false);
-}
