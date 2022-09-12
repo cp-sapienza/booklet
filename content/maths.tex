@@ -6,7 +6,7 @@
 \bigo{logN} Time
 
 Computes $(a * b)$\:\%\:mod without overflow.
-\lstinputlisting{source/mod_mul.cpp}
+\snippet{source/mod_mul.cpp}
 
 
 \subsection{Binary Exponentiation}
@@ -15,11 +15,11 @@ Computes $(a * b)$\:\%\:mod without overflow.
 Returns ${base^{exp}}$\:\%\:mod
 
 Works with \verb|int|
-\lstinputlisting{source/bin_expo.cpp}
+\snippet{source/bin_expo.cpp}
 
 Works with \verb|long long| \\
 Requires \verb|mod_mul(ll, ll, ll)|
-\lstinputlisting{source/bin_expoll.cpp}
+\snippet{source/bin_expoll.cpp}
 
 
 \subsection{Modular Inverse}
@@ -28,7 +28,7 @@ Requires \verb|mod_mul(ll, ll, ll)|
 Returns ${x^{-1}}$\:\%\:mod. For prime moduli, the answer always exists. For non prime moduli, returns $-1$ if no answer exists, i.e. if \verb|gcd(n,mod)|$ \neq 1$.
 
 Requires \verb|egcd(ll, ll)|
-\lstinputlisting{source/mod_inverse.cpp}
+\snippet{source/mod_inverse.cpp}
 
 
 \subsection{Factorial}
@@ -41,7 +41,7 @@ NOTE: This function works iff the modulo is coprime with $n!$
 (for example $mod$ is a prime number strictly greater than $n$)
 
 Requires \verb|mod_inverse(int, int)|
-\lstinputlisting{source/factorial.cpp}
+\snippet{source/factorial.cpp}
 
 
 \subsection{Binomial Coefficient}
@@ -50,7 +50,7 @@ Requires \verb|mod_inverse(int, int)|
 Computes $\binom{n}{k}$\:\%\:mod \\
 If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
-\lstinputlisting{source/binomial_coefficient.cpp}
+\snippet{source/binomial_coefficient.cpp}
 
 \subsection{Stars and Bars Theorem}
 \begin{enumerate}
@@ -82,7 +82,7 @@ Problems solved by Catalan Numbers:
 
 If \verb|mod| $> 2^{32}$, use \verb|mod_mul(ll, ll, ll)| instead of \verb|*| \\
 \verb|init_factorials(int, int)| must be called before this function!
-\lstinputlisting{source/catalan_number.cpp}
+\snippet{source/catalan_number.cpp}
 
 
 \subsection{Burnside's lemma}
@@ -113,13 +113,13 @@ So, in total we have:
 
 \subsection{Prime sieve}
 Calculates \verb|isprime| for all $x \in [0 \ldots N]$, \bigo{NloglogN}.
-\lstinputlisting{source/erathostenes.cpp}
+\snippet{source/erathostenes.cpp}
 
 \subsection{(Deterministic) Miller-Rabin - Primality Check}
 Returns true if the number is prime, false otherwise
 
 Requires \verb|mod_mul(ll, ll, ll), mod_expoll(ll, ll, ll)|
-\lstinputlisting{source/miller_rabin.cpp}
+\snippet{source/miller_rabin.cpp}
 
 
 \subsection{Pollard's Rho - Prime Factor}
@@ -127,7 +127,7 @@ Returns n if n is prime or n is $< 2$ \\
 Else returns a prime factor of n
 
 Requires \verb|miller_rabin(ll), mod_mul(ll, ll, ll)|
-\lstinputlisting{source/pollard_rho.cpp}
+\snippet{source/pollard_rho.cpp}
 
 
 \subsection{Integer Factorization}
@@ -136,7 +136,7 @@ Each factor is represented as a \verb|pair<ll, int>| \\
 where the first element is the prime factor and the second is the power of that factor
 
 Requires \verb|pollard_rho(ll)|
-\lstinputlisting{source/factorize.cpp}
+\snippet{source/factorize.cpp}
 
 
 \subsection{Extended Euclidean Algorithm}
@@ -160,7 +160,7 @@ All the possible solutions have the form: \\
 with $k \in Z$
 
 Requires \verb|egcd(ll, ll)|
-\lstinputlisting{source/diophantine.cpp}
+\snippet{source/diophantine.cpp}
 
 
 \subsection{Chinese Remainder Theorem}
@@ -169,7 +169,7 @@ $x = a[i] \: mod \: n[i], \forall i$ \\
 It there's no solution, it returns -1
 
 Requires \verb|egcd(ll, ll)|
-\lstinputlisting{source/chinese_remainder_theorem.cpp}
+\snippet{source/chinese_remainder_theorem.cpp}
 
 
 \subsection{Euler Phi function}
@@ -181,7 +181,7 @@ If $d$ is a divisor of $n$, then there are $\phi(n / d)$ numbers $i \leq n$ s.t.
 \verb|phi| returns $\phi(n)$ in \bigo{\sqrt n\log n} \\
 \verb|phi_up_to_n| returns $\phi(i) \; \forall i \in [0 \ldots n]$ in \bigo{n \log\log n}
 
-\lstinputlisting{source/phi.cpp}
+\snippet{source/phi.cpp}
 
 
 \subsection{Fast Fourier Transform}
@@ -197,7 +197,7 @@ Works with \verb|long double|
 \verb|mod_conv(a, b, mod)| computes the coefficients modulo \verb|mod| \\
 Works with \verb|long long|
 
-\lstinputlisting{source/fft.cpp}
+\snippet{source/fft.cpp}
 
 
 \subsection{Probability Distributions}
@@ -289,7 +289,7 @@ $\mu(n)$ is a multiplicative function s.t.: \\
 \]
 
 \verb|mu_up_to_n| returns $\mu(i) \; \forall i \in [0, n]$ in \bigo{n \log\log n}
-\lstinputlisting{source/mobius_function.cpp}
+\snippet{source/mobius_function.cpp}
 
 
 \subsection{Möbius Inversion}
@@ -368,4 +368,4 @@ for (int i = 1; i < N; ++i) {
 	dp_old = dp_cur;
 }
 \end{lstlisting}
-\lstinputlisting{source/dnc_dp_optimization.cpp}
+\snippet{source/dnc_dp_optimization.cpp}
