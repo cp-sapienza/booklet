@@ -13,7 +13,7 @@ V := number of vertices, E := number of edges
 \verb|vector<ll> dist = dijkstra(adj_list, src);| \\
 \verb|dist[u]| := distance between node \verb|src| and \verb|u| \\
 \verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|u|
-\snippet{source/dijkstra.cpp}
+\snippet{source/dijkstra.h}
 
 
 \subsection{Bellman-Ford - Single Source Shortest Path}
@@ -25,7 +25,7 @@ Edges are represented by an \verb|array<int, 3> edge| s.t.: \\
 \verb|dist[u]| := distance between node \verb|src| and \verb|v| \\
 \verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|v| \\
 \verb|dist[u]| = \verb|-INF| if there's a negative-weight cycle between \verb|src| and \verb|v|
-\snippet{source/bellman_ford.cpp}
+\snippet{source/bellman_ford.h}
 
 
 \subsection{Floyd Warshall - All-pairs Shortest Path}
@@ -36,21 +36,21 @@ Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge b
 \verb|dist[u][v]| := distance between node \verb|u| and \verb|v| \\
 \verb|dist[u][v]| = \verb|INF| if there's no path between \verb|u| and \verb|v| \\
 \verb|dist[u][v]| = \verb|-INF| if the path between \verb|u| and \verb|v| can be made arbitrarily short by going through a negative weight cycle
-\snippet{source/floyd_warshall.cpp}
+\snippet{source/floyd_warshall.h}
 
 \subsection{0/1 BFS - SSSP with binary weights}
 \bigo{V+E}, handles graphs where all edges have a weight of $0$ or $1$.
 \verb|vector<ll> dist = bfs01(adj_list, src);| \\
 \verb|dist[u]| := distance between node \verb|src| and \verb|u| \\
 \verb|dist[u]| = \verb|INF| if there's no path between \verb|src| and \verb|u|
-\snippet{source/bfs01.cpp}
+\snippet{source/bfs01.h}
 
 \subsection{Khan - Topological Sort}
 \bigo{V + E}
 
 \verb|vi order = topological_sort(adjacency_list);| \\
 if the graph is not a DAG, order will be empty
-\snippet{source/topological_sort.cpp}
+\snippet{source/topological_sort.h}
 
 
 \subsection{Prim - Minimum Spanning Tree, Dense Graphs}
@@ -60,7 +60,7 @@ Takes an adjacency matrix as input, with \verb|g[u][v]|=INF if there's no edge b
 Returns the adjacency list of the undirected weighted minimum spanning tree of the given graph. \\
 If the graph is not connected it returns an empty list. \\
 \verb|auto mst = prim(adjacency_matrix);| \\
-\snippet{source/prim_mst_dense.cpp}
+\snippet{source/prim_mst_dense.h}
 
 
 \subsection{Prim - Minimum Spanning Tree, Sparse Graphs}
@@ -70,7 +70,7 @@ Takes an adjacency list as input \\
 Returns the adjacency list of the undirected weighted minimum spanning tree of the given graph. \\
 If the graph is not connected it returns an empty list. \\
 \verb|auto mst = prim(adjacency_list);| \\
-\snippet{source/prim_mst_sparse.cpp}
+\snippet{source/prim_mst_sparse.h}
 
 
 \subsection{Articulation Points}
@@ -79,7 +79,7 @@ If the graph is not connected it returns an empty list. \\
 \verb|ArticulationPoints art_points{adjacency_list};| \\
 \verb|art_points.is_ap| is \verb|vector<bool>| of \verb|V| elements \\
 \verb|art_points.is_ap[u] = true| iff vertex \verb|u| is an articulation point
-\snippet{source/articulation_points.cpp}
+\snippet{source/articulation_points.h}
 
 
 \subsection{Bridges}
@@ -87,7 +87,7 @@ If the graph is not connected it returns an empty list. \\
 
 \verb|Bridges bridges{adjacency_list};| \\
 \verb|bridges.edges| is an edge list containing the bridges of the graph
-\snippet{source/bridges.cpp}
+\snippet{source/bridges.h}
 
 
 \subsection{Kosaraju - Strongly Connected Components}
@@ -97,4 +97,4 @@ If the graph is not connected it returns an empty list. \\
 \verb|kosaraju.cc| will store the total number of strongly connected components \\
 \verb|kosaraju.comp[u]| will store an integer in range [0, cc) representing the strongly connected component of u \\
 \verb|kosaraju.cond_adj| will store the adjacency list of the condensation graph
-\snippet{source/kosaraju.cpp}
+\snippet{source/kosaraju.h}
