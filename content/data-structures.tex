@@ -45,7 +45,7 @@ Creates \bigo{logN} new nodes per update and query.
 \subsection{Segment tree - sparse}
 \bigo{logN} per operation, \bigo{QlogN} memory (for Q = queries + updates).\\
 Works like a \verb|LazyST| but only creates nodes reached in queries and updates.\\
-This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX|).\\
+This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX/2|).\\
 There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.\\
 Last tip: high \verb|inf| might cause overheads, so try to keep it low.
 \snippet{source/segment-sparse.cpp}
