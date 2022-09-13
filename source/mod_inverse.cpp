@@ -1,5 +1,4 @@
 #include "common.h"
-#include "egcd.cpp"
 
 ll mod_inverse(ll n, ll mod) {
 	auto [x,y,g] = egcd(n, mod);

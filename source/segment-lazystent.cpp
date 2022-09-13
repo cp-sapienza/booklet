@@ -1,4 +1,4 @@
-#include"template.cpp"
+#include "common.h"
 
 struct LazystentST {
 	using Value = ll;

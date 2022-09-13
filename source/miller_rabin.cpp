@@ -1,5 +1,4 @@
 #include "common.h"
-#include "bin_expoll.cpp"
 
 bool miller_rabin(ll n) {
 	if (n < 2) return false;
