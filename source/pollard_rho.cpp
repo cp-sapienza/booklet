@@ -1,5 +1,6 @@
 #include "common.h"
 
+
 ll pollard_rho(ll n) {
 	if (n < 2) return n;
 	if (n % 2 == 0) return 2;
