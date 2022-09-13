@@ -50,4 +50,16 @@ struct PersistentST {
 	void update(int ver, int p, int v) { roots[ver] = update(roots[ver], 0, n-1, p, v); }
 	Value query(int ver, int x, int y) { return query(roots[ver], 0, n-1, x, y); }
 	void duplicate(int ver) { roots.push_back(roots[ver]); }
+
+	// Optional: replaces range [x, y] in version ver with the same range of version src
+	int replace(int u, int v, int l, int r, int x, int y) {
+		if(r < x || l > y) return u;
+		if(x <= l && r <= y) return v;
+		else {
+			int lson = replace(st[u].sx, st[v].sx, l, (l+r)/2, x, y);
+			int rson = replace(st[u].dx, st[v].dx, (l+r)/2+1, r, x, y);
+			return alloc(merge(st[lson].val, st[rson].val), lson, rson);
+		}
+	}
+	void replace(int ver, int src, int x, int y) { roots[ver] = replace(roots[ver], roots[src], 0, n-1, x, y); }
 };

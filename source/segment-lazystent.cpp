@@ -82,8 +82,8 @@ struct LazystentST {
 		if(r < x || l > y) return u;
 		if(x <= l && r <= y) return v;
 		else {
-			push(u, l, r); // <- delete this two lines 
-			push(v, l, r); // <- for the non-lazy version
+			push(u, l, r);
+			push(v, l, r);
 			int lson = replace(st[u].sx, st[v].sx, l, (l+r)/2, x, y);
 			int rson = replace(st[u].dx, st[v].dx, (l+r)/2+1, r, x, y);
 			return alloc(merge(st[lson].val, st[rson].val), lson, rson);
