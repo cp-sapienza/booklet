@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "egcd.h"
 
 bool diophantine(ll a, ll b, ll c, ll& x0, ll& y0, ll& g) {
 	auto e = egcd(abs(a), abs(b));

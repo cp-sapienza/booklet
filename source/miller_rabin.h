@@ -1,5 +1,7 @@
 #pragma once
 #include "common.h"
+#include "mod_mul.h"
+#include "bin_expoll.h"
 
 bool miller_rabin(ll n) {
 	if (n < 2) return false;

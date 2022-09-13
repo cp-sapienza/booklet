@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "egcd.h"
 
 ll mod_inverse(ll n, ll mod) {
 	auto [x,y,g] = egcd(n, mod);

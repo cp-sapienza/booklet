@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "egcd.h"
 
 ll crt(const vector<ll>& a, const vector<ll>& n) {
 	ll res = a[0], l = n[0];

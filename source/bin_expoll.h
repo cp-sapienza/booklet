@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "mod_mul.h"
 
 ll bin_expoll(ll base, ll exp, ll mod) {
 	ll result = 1;

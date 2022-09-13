@@ -1,6 +1,7 @@
 #pragma once
 #include "common.h"
-
+#include "mod_mul.h"
+#include "miller_rabin.h"
 
 ll pollard_rho(ll n) {
 	if (n < 2) return n;

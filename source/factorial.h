@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "mod_inverse.h"
 
 vector<ll> factorial;
 vector<ll> inv_factorial;
