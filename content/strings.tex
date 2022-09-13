@@ -15,7 +15,7 @@ returns true if it is possible to move from node \verb|u| with character \verb|c
 if possible moves \verb|u| as a side effect \\
 \verb|trie.marker(u);|
 returns true if there's a string ending at node \verb|u| \\
-\snippet{source/trie.cpp}
+\snippet{source/trie.h}
 
 
 \subsection{Z Function}
@@ -26,23 +26,23 @@ $z[i] = $ length of the longest substring starting at i that is a prefix of s \\
 $z[i] = $ max len s.t. $s[0..len-1] == s[i..i+len-1]$, $z[0] = 0$
 
 \end{flushleft}
-\snippet{source/z_func.cpp}
+\snippet{source/z_func.h}
 
 \subsection{KMP}
 \bigo{N} construction, \bigo{N+M} search with \bigo{|pat|} space.
 
 $pi[i] =$ length of the longest proper suffix of $[0 \ldots i]$ that is a prefix of s. \\
 $pi[i] =$ max len $\leq$ i s.t. $s[0\ldots len-1] == s[i-len+1 \ldots i]$, $pi[0]=0$
-\snippet{source/kmp.cpp}
+\snippet{source/kmp.h}
 
 \subsection{Rolling hash}
 Resistant to birthday paradox, returns (hash,startindex) pairs. Change b if your alphabet has more than 26 elements
-\snippet{source/rolling_hash.cpp}
+\snippet{source/rolling_hash.h}
 
 \subsection{Segment tree for substring hashes}
 
 Segment tree that returns the hash of a range and allows for changing a single character in \bigo{logN}. Use the following as the \verb|Node| class and related functions in a segment tree. Additionally, the tree's constructor should take \verb|const string& data| and the update should take \verb|char v| instead of int. \verb|Node::h| is the resulting hash value, \verb|Node::p| should be initialized to the alphabet size, default $26$.
-\snippet{source/substring_hash_segment_tree.cpp}
+\snippet{source/substring_hash_segment_tree.h}
 
 
 \subsection{Suffix array}
@@ -56,7 +56,7 @@ lcp[i] = length of the longest common prefix between
   suffixes sa[i] and sa[i+1], lcp[0] = 0
 
 To calculate the LCP between arbitrary distinct positions i and j in s, build a SparseTable over the lcp array and query the $[min(rank[i],rank[j]),max(rank[i],rank[j])-1]$ range
-\snippet{source/suffix_array.cpp}
+\snippet{source/suffix_array.h}
 
 \subsection{Manacher - palindromic substrings}
 Returns, for each index, the radius of the longest palindrome centered there. For even lengths, the center is the left one of the two. \bigo{N} construction.
@@ -67,15 +67,15 @@ $p[1][i] \xrightarrow{}$ palindrome is $s[i-p[1][i]+1 \ldots i+p[1][i]]$, even l
 \end{flushleft}
 
 If needed, define \texttt{handle\_pal} and uncomment the lines where it's called. It will be called \bigo{N} times on a palindrome [a,b]. It will be called on all the distinct palindromes, but potentially more than once with an identical string (at different indices) for palindromes that repeat. It will NOT be called on each palindromic substring, that would be quadratic.
-\snippet{source/manacher.cpp}
+\snippet{source/manacher.h}
 
 \subsection{Minimal string rotation}
 Find the smallest rotation of a string, and return the position of its first character. \bigo{N}. Usage:
 \texttt{rotate(s.begin(), s.begin() + minimal\_rotation(s), s.end());}
-\snippet{source/minimal_string_rotation.cpp}
+\snippet{source/minimal_string_rotation.h}
 
 \subsection{Lyndon factorization}
 Split a string into simple strings $s_0 \geq s_1 \geq s_2 \geq \ldots $\\
 A simple string is strictly smaller than all its rotations. For any string, a factorization always exists and is unique. Returns \texttt{(start\_idx,length)} pairs, \bigo{N}
-\snippet{source/lyndon.cpp}
+\snippet{source/lyndon.h}
 

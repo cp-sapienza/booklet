@@ -4,20 +4,20 @@
 \subsection{Constants}
 \verb|EPS = 1e-9| default, check precision required by the problem and
 change it accordingly.
-\snippet{source/constants_geom.cpp}
+\snippet{source/constants_geom.h}
 
 
 \subsection{Point}
 Use \verb|ll| as type - avoid \verb|ld| if possible.
-\snippet{source/point.cpp}
+\snippet{source/point.h}
 
 \subsection{Line}
-\snippet{source/line.cpp}
+\snippet{source/line.h}
 
 \subsection{Polygon}
 Store vertices in counterclockwise (ccw) order.
 Change \verb|vector<Point<ll>>| to another type if needed - strongly discouraged.
-\snippet{source/polygon.cpp}
+\snippet{source/polygon.h}
 
 \subsection{Closest pair of points}
 
@@ -25,7 +25,7 @@ Change \verb|vector<Point<ll>>| to another type if needed - strongly discouraged
 Returns the pair of points with the smallest Euclidean distance
 
 \verb|auto cp = closest_pair(points);|
-\snippet{source/closest_pair_of_points.cpp}
+\snippet{source/closest_pair_of_points.h}
 
 
 \subsection{Convex Hull}
@@ -37,7 +37,7 @@ If you want to include collinear edges: \\
 \verb|hull = convex_hull(points, true);|
 
 Change \verb|P| to \verb|Point<ld>| if you are dealing with floating point numbers
-\snippet{source/convex_hull.cpp}
+\snippet{source/convex_hull.h}
 
 
 \subsection{Kd-Tree}
@@ -50,4 +50,4 @@ Find the point with the smallest Euclidean distance to the given point \\
 \verb|P p = tree.nearest(from);|
 
 Uncomment the commented code to not include the point itself in the search
-\snippet{source/kd_tree.cpp}
+\snippet{source/kd_tree.h}

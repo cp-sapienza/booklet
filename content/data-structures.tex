@@ -1,46 +1,46 @@
 \section{Data structures}
 
 \subsection{Ordered set/map}
-\snippet{source/pbds-set.cpp}
+\snippet{source/pbds-set.h}
 
 \subsection{Faster hashmap}
 3x faster, uses 1.5x memory
-\snippet{source/pbds-hashmap.cpp}
+\snippet{source/pbds-hashmap.h}
 
 \subsection{Fenwick tree}
 \bigo{N} build, \bigo{logN} point update and range query.
-\snippet{source/fenwick.cpp}
+\snippet{source/fenwick.h}
 
 \subsection{2D Fenwick}
 \bigo{log^2 N} point update and range query.
 To extend to more dimensions, add more nested loops in update
 and query, and complete the last query by inclusion-exclusion.
-\snippet{source/fenwick2d.cpp}
+\snippet{source/fenwick2d.h}
 
 \subsection{Lower bound on Fenwick tree}
 If there are no negative values finds the
 smallest i such that sum(0, i)>=k in \bigo{logN}.
 If such i doesn't exists returns -1.
 This function must be copied inside the struct
-\snippet{source/fenwick_lower_bound.cpp}
+\snippet{source/fenwick_lower_bound.h}
 
 \subsection{Segment tree}
 \bigo{N} construction, \bigo{logN} per operation.
-\snippet{source/segment.cpp}
+\snippet{source/segment.h}
 
 \subsection{Segment tree - lazy range updates}
 \bigo{N} construction, \bigo{logN} per operation.
-\snippet{source/segment-lazy.cpp}
+\snippet{source/segment-lazy.h}
 
 \subsection{Segment tree - persistent}
 \bigo{N} construction, \bigo{logN} per operation.
 Creates \bigo{logN} new nodes per update.
-\snippet{source/segment-persistent.cpp}
+\snippet{source/segment-persistent.h}
 
 \subsection{Segment tree - persistent with lazy range updates}
 \bigo{N} construction, \bigo{logN} per operation.
 Creates \bigo{logN} new nodes per update and query.
-\snippet{source/segment-lazystent.cpp}
+\snippet{source/segment-lazystent.h}
 
 \subsection{Segment tree - sparse}
 \bigo{logN} per operation, \bigo{QlogN} memory (for Q = queries + updates).\\
@@ -48,7 +48,7 @@ Works like a \verb|LazyST| but only creates nodes reached in queries and updates
 This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX/2|).\\
 There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.\\
 Last tip: high \verb|inf| might cause overheads, so try to keep it low.
-\snippet{source/segment-sparse.cpp}
+\snippet{source/segment-sparse.h}
 
 \subsection{Lower bound on segment tree}
 Finds the smallest i such that query(0, i).field>=k in \bigo{logN}.
@@ -56,23 +56,23 @@ If such i doesn't exists returns -1.
 Only works in lazy and basic segment trees.
 Only works if field is monotone. The field must be specified in cmp.
 Both functions must be copied inside the segment struct.
-\snippet{source/segment_lower_bound.cpp}
+\snippet{source/segment_lower_bound.h}
 
 
 \subsection{Union find}
-\snippet{source/ufds.cpp}
+\snippet{source/ufds.h}
 
 \subsection{Sparse table}
 \bigo{NlogN} construction and memory usage, \bigo{1} query.
-\snippet{source/sparse-table.cpp}
+\snippet{source/sparse-table.h}
 
 \subsection{Minqueue}
 Keeps the minimum over a sliding window, allows for inserting elements to the right and for removing all elements from the left until a certain index. All operations amortized \bigo{1}.
-\snippet{source/minqueue.cpp}
+\snippet{source/minqueue.h}
 
 \subsection{Mo queries}
 Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and getresult functions.
-\snippet{source/mo_queries.cpp}
+\snippet{source/mo_queries.h}
 
 \subsection{LineContainer - Convex Hull Trick}
 
@@ -80,7 +80,7 @@ Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and
 \verb|LineContainer cht;| \\
 \verb|cht.add(k, m);| to add a line of the form $y = kx + m$ \\
 \verb|cht.query(x);| to query the maximum value with coordinate $x$
-\snippet{source/line_container.cpp}
+\snippet{source/line_container.h}
 
 \subsection{Treap}
 
@@ -106,9 +106,9 @@ visit(t, [](Treap *u) {
 	cout << u->val;
 });
 \end{lstlisting}
-\snippet{source/treap.cpp}
+\snippet{source/treap.h}
 
 
 \subsection{Link Cut Tree}
 \bigo{\log N} per operation
-\snippet{source/link_cut_tree.cpp}
+\snippet{source/link_cut_tree.h}
