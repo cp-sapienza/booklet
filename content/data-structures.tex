@@ -17,13 +17,6 @@ To extend to more dimensions, add more nested loops in update
 and query, and complete the last query by inclusion-exclusion.
 \snippet{source/fenwick2d.h}
 
-\subsection{Lower bound on Fenwick tree}
-If there are no negative values finds the
-smallest i such that sum(0, i)>=k in \bigo{logN}.
-If such i doesn't exists returns -1.
-This function must be copied inside the struct
-\snippet{source/fenwick_lower_bound.h}
-
 \subsection{Segment tree}
 \bigo{N} construction, \bigo{logN} per operation.
 \snippet{source/segment.h}
@@ -49,15 +42,6 @@ This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|
 There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.\\
 Last tip: high \verb|inf| might cause overheads, so try to keep it low.
 \snippet{source/segment-sparse.h}
-
-\subsection{Lower bound on segment tree}
-Finds the smallest i such that query(0, i).field>=k in \bigo{logN}.
-If such i doesn't exists returns -1.
-Only works in lazy and basic segment trees.
-Only works if field is monotone. The field must be specified in cmp.
-Both functions must be copied inside the segment struct.
-\snippet{source/segment_lower_bound.h}
-
 
 \subsection{Union find}
 \snippet{source/ufds.h}

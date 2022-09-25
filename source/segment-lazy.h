@@ -68,4 +68,28 @@ struct LazyST {
 	// [x, y]
 	Node query(int x, int y) { return query(1, 0, n-1, x, y); }
 	void update(int x, int y, Update v) { return update(1, 0, n-1, x, y, v); }
+
+	// Optional features start here
+	// condition on result of lower_bound(k)
+	bool cmp(Node nd, int k) { return nd >= k; }
+	// Returns lowest i such that cmp(query(0, i), k) is true
+	// (or -1 if such i does not exist) in O(log N).
+	// Only works where binary searching cmp(query(0, i), k) would work, but it's faster
+	int lower_bound(int k) {
+		if(!cmp(st[1], k))
+			return -1;
+		int p = 1, l = 0, r = n-1;
+		Node part = unit;
+		while(p < n)
+		{
+			push(p, l, r);
+			p <<= 1;
+			if(!cmp(merge(part, st[p]), k)) {
+				part = merge(part, st[p++]);
+				l = (l+r)/2+1;
+			}
+			else r = (l+r)/2;
+		}
+		return p - n;
+	}
 };
