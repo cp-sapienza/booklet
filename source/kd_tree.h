@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "point.h"
 
 using T = ll;
 using P = Point<T>;

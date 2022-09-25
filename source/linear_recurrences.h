@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "matrix_mult_pow.h"
 
 ll linear_recurrence(const vector<ll>& a, const vector<ll>& b, const vector<ll>& x, ll n, ll mod) {
 	int k = a.size(), h = b.size();

@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "point.h"
 
 struct Line{
 	ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines

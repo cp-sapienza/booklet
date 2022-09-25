@@ -1,6 +1,6 @@
 #pragma once
 #include "common.h"
-
+#include "point.h"
 using P = Point<ll>;
 
 vector<P> convex_hull(vector<P> points, bool collinear_edges=false) {

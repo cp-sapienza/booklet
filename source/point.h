@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "constants_geom.h"
 
 ld deg_to_rad(ld d) { return d * PI / 180.0; }
 ld rad_to_deg(ld r) { return r * 180.0 / PI; }
