@@ -26,21 +26,19 @@ struct Fenwick {
 	Value get(int p) { return sum(p, p); }
 	void set(int p, Value v) { add(p, v - get(p)); }
 
-	/* Optional. If the fenwick has no negative values returns the smallest i
-		for which sum(0, i) >= k in O(log N) (or -1 if such i does not exist)
-	*/
+	// Optional. If the fenwick has no negative values returns the smallest i
+	// for which sum(0, i) >= k in O(log N) (or -1 if such i does not exist)
 	int lower_bound(Value k) {
-	int t, res = 0;
-	t = 1 << (__builtin_clz(1)-__builtin_clz(ssize(ft)));
-	while(t) {
-		if(t+res < ssize(ft)-1 && ft[t+res] < k) {
-		//                                  ^<= for upper_bound
-			res += t;
-			k -= ft[res];
+		int t, res = 0;
+		t = 1 << (__builtin_clz(1)-__builtin_clz(ssize(ft)));
+		while(t) {
+			if(t+res < ssize(ft)-1 && ft[t+res] < k) {
+			//                                  ^<= for upper_bound
+				res += t;
+				k -= ft[res];
+			}
+			t /= 2;
 		}
-		t /= 2;
+		return ft[res+1]<k ? -1 : res;
 	}
-	return ft[res+1] < k? -1 : res;
-}
-
 };
