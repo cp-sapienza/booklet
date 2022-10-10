@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "segment-lazy.h"
 
 struct hld
 {

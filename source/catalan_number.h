@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "factorial.h"
 
 int catalan_number(int n, int mod) {
 	assert(factorial.size() > 2 * n);

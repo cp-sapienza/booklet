@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "pollard_rho.h"
 
 vector<pair<ll, int>> factorize(ll n) {
 	vector<pair<ll, int>> factors;
