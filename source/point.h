@@ -11,10 +11,13 @@ struct Point {
 	typedef Point P;
 	T x, y;
 	Point(T x=0, T y=0) : x(x), y(y) {}
+	template<class C>
+	Point(Point<C> p) : x(p.x), y(p.y) {}
 	bool operator<(P p) const { return tie(x,y) < tie(p.x,p.y); }
 	bool operator==(P p) const { return tie(x,y)==tie(p.x,p.y); }
 	P operator+(P p) const { return P(x+p.x, y+p.y); }
 	P operator-(P p) const { return P(x-p.x, y-p.y); }
+	P operator-() const { return P(-x, -y); }
 	P operator*(T d) const { return P(x*d, y*d); }
 	P operator/(T d) const { return P(x/d, y/d); }
 	T dot(P p) const { return x*p.x + y*p.y; }
