@@ -20,16 +20,6 @@ struct Line{
 	template<typename T>
 	Line(Point<T>& p, ld m) {
 		a = m; b = 1.0; c = -((a * p.x) + (b * p.y)); }
-	Line norm() {
-		if(abs(b) < EPS)
-			b = 0.0;
-		else {
-			a /= b;
-			c /= b;
-			b = 1.0;
-		}
-		return *this;
-	}
 	bool check_parallel(Line l) {
 		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS); }
 	bool check_same(Line l) {
@@ -65,4 +55,15 @@ Point<ld> intersec_line_seg(Point<ld> p, Point<ld> q, Point<ld> A, Point<ld> B) 
 	ld u = abs(a*p.x + b*p.y + c);
 	ld v = abs(a*q.x + b*q.y + c);
 	return Point<ld>((p.x * v + q.x * u) / (u+v), (p.y * v + q.y * u) / (u+v));
+}
+// use this for line equations where b is not always equal to 0 or 1
+Line norm(ld a, ld b, ld c) {
+	if(abs(b) < EPS)
+		b = 0.0;
+	else {
+		a /= b;
+		c /= b;
+		b = 1.0;
+	}
+	return Line(a, b, c);
 }
