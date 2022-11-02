@@ -36,11 +36,11 @@ struct Point {
 	// returns point p rotated ccw of theta degrees wrt center c
 	// clockwise rotation: use -theta, center = c
 	P ccw_rotation(const P& p, ld theta, const P c = P(0, 0)){
-        ld rad = deg_to_rad(theta);
-        return point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
-    bool collinear(P q, P r){return abs(this -> cross(q, r)) < EPS;}
-    bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
-        return (q-p).cross((*this)-p) > 0;}
+		ld rad = deg_to_rad(theta);
+		return P(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y);}
+	bool collinear(P q, P r){return abs(this -> cross(q, r)) < EPS;}
+	bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
+		return (q-p).cross((*this)-p) > 0;}
 	bool on_segment(P A, P B){ // returns true if this is on segment AB
 		if(this -> collinear(A, B) && this -> x <= max(A.x, B.x) && this -> x >= min(A.x, B.x)
 			&& this -> y <= max(A.y, B.y) && this -> y >= min(A.y, B.y)) return true;
