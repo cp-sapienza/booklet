@@ -25,8 +25,7 @@ Returns a \verb|vector<Point<ld>>| of size 0, 1 or 2, containings the intersecti
 This does NOT handle concentric circles. It's a case that must be handled before calling the function.\\
 Requires \verb|circle_x_line|. Usage:
 \begin{lstlisting}
-	if(abs(c1.x - c2.x) < EPS && abs(c1.y - c2.y) < EPS)
-	{
+	if(abs(c1.x - c2.x) < EPS && abs(c1.y - c2.y) < EPS) {
 		if(abs(rad1 - rad2) < EPS) {...} // coincident circles
 		else {...} // non intersecting circles
 	}
