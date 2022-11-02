@@ -53,9 +53,3 @@ struct Point {
 	friend ostream& operator<<(ostream& os, P p) {
 		return os << "(" << p.x << ", " << p.y << ")";}
 };
-
-int main()
-{
-	Point (1, 1)
-}
-
