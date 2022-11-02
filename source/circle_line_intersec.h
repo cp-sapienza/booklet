@@ -4,7 +4,7 @@
 
 
 
-vector<Point<ld>> circle_x_line(ld rad, Line ln, Point<ld> center = {0, 0}){
+vector<Point<ld>> circle_x_line(ld rad, Line ln, Point<ld> center = {0, 0}) {
 	ln = ln + (-center);
 	Point<ld> o(0, 0);
 	Point<ld> p0 = closest_point(o, ln);
