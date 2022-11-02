@@ -17,7 +17,7 @@ struct Line{
 		}
 	}
 	Line(Point<ld>& p, ld m){
-		a = m; b = 1.0; c = -((a * p.x) + (b * p.y)); }
+		a = m; b = 1.0; c = -((a * p.x) + (b * p.y));}
 	Line norm() {
 		if(abs(b) < EPS)
 			b = 0.0l;
@@ -29,11 +29,11 @@ struct Line{
 		return *this;
 	}
 	bool check_parallel(Line l){
-		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS); }
+		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS);}
 	bool check_same(Line l) {
-		return this -> check_parallel(l) && (abs(c-l.c) < EPS); }
+		return this -> check_parallel(l) && (abs(c-l.c) < EPS);}
 	bool check_orthogonal(Line l){
-		return abs(a + 1/l.a) < EPS; }
+		return abs(a + 1/l.a) < EPS;}
 	bool check_intersection(Line l, Point<ld>& p){ // if true, P is the intersection point
 		if(this -> check_parallel(l)) return false;
 		p.x = (l.b * c - b * l.c) / (l.a * b - a * l.b);
@@ -46,10 +46,10 @@ struct Line{
 		return Line(a, b, c-p.y*b-a*p.x);
 	}
 	friend ostream& operator << (ostream& os, Line l) {
-		return os << "(" << l.a << ", " << l.b  << ", " << l.c << ")"; }
+		return os << "(" << l.a << ", " << l.b  << ", " << l.c << ")";}
 };
 ld dist_to_line(Point<ld> p, Line l){
-	return abs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b); }
+	return abs(l.a * p.x + l.b * p.y + l.c) / sqrt(l.a * l.a + l.b * l.b);}
 Point<ld> closest_point(Point<ld> p, Line ln) { // returns the closest point to p on l
 	ln = ln+(-p);
 	ld t = ln.c/(ln.a*ln.a+ln.b*ln.b);
