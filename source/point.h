@@ -27,12 +27,12 @@ struct Point {
 	ld angle() const { return atan2(y, x); }
 	// angle with custom center o in interval [0, pi]
 	ld aob_angle(P o, P b) {
-		return acos((*this-o).dot(b-o) / sqrtl((*this-o).dist2() * (b-o).dist2())); }
+		return acosl((*this-o).dot(b-o) / sqrtl((*this-o).dist2() * (b-o).dist2())); }
 	P unit() const { return *this/dist(); } // makes dist()=1
 	P perp() const { return P(-y, x); } // rotates +90 degrees
 	P normal() const { return perp().unit(); }
 	// returns point p rotated ccw of theta degrees wrt center c
-	bool collinear(P q, P r){return abs(this -> cross(q, r)) < EPS; }
+	bool collinear(P q, P r){ return abs(this -> cross(q, r)) < EPS; }
 	bool ccw_check(P p, P q) { // returns true if the point is on the left side of line pq
 		return (q-p).cross((*this)-p) > 0; }
 	bool on_segment(P A, P B){ // returns true if this is on segment AB
@@ -50,4 +50,4 @@ struct Point {
 // clockwise rotation: use -theta, center = c
 Point<ld> ccw_rotation(ld theta, const Point<ld> p, const Point<ld> c = Point<ld>(0, 0)){
 	ld rad = deg_to_rad(theta);
-	return Point(cos(rad) * (p.x - c.x) - sin(rad) * (p.y - c.y) + c.x, sin(rad) * (p.x - c.x) - cos(rad) * (p.y - c.y) + c.y); }
+	return Point(cosl(rad) * (p.x - c.x) - sinl(rad) * (p.y - c.y) + c.x, sinl(rad) * (p.x - c.x) - cosl(rad) * (p.y - c.y) + c.y); }
