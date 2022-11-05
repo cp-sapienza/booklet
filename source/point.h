@@ -22,12 +22,12 @@ struct Point {
 	T cross(P p) const { return x*p.y - y*p.x; }
 	T cross(P a, P b) const { return (a-*this).cross(b-*this); }
 	T dist2() const { return x*x+y*y; }
-	ld dist(P from = {0, 0}) const { return sqrt((ld)(*this-from).dist2()); }
+	ld dist(P from = {0, 0}) const { return sqrtl((ld)(*this-from).dist2()); }
 	// angle to x-axis in interval [-pi, pi]
 	ld angle() const { return atan2(y, x); }
 	// angle with custom center o in interval [0, pi]
 	ld aob_angle(P o, P b) {
-		return acos((*this-o).dot(b-o) / sqrt((*this-o).dist2() * (b-o).dist2())); }
+		return acos((*this-o).dot(b-o) / sqrtl((*this-o).dist2() * (b-o).dist2())); }
 	P unit() const { return *this/dist(); } // makes dist()=1
 	P perp() const { return P(-y, x); } // rotates +90 degrees
 	P normal() const { return perp().unit(); }

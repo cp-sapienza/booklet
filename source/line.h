@@ -3,11 +3,10 @@
 #include "point.h"
 #include "constants_geom.h"
 
-#define TTT template<typename T>
 struct Line{
 	ld a, b, c; // b = 1 non-vertical lines, b = 0 vertical lines
 	Line(ld a_, ld b_, ld c_) : a(a_), b(b_), c(c_) {}
-	TTT Line(const Point<T>& p1, const Point<T>& p2){
+	Line(const Point<ld>& p1, const Point<ld>& p2){
 		if(abs(p1.x - p2.x) < EPS) {
 			a = 1.0; b = 0.0; c = -p1.x;
 		}
@@ -17,7 +16,7 @@ struct Line{
 			c = -(ld) (a * p1.x) - p1.y;
 		}
 	}
-	TTT Line(Point<T>& p, ld m) {
+	Line(Point<ld>& p, ld m) {
 		a = m; b = 1.0; c = -((a * p.x) + (b * p.y)); }
 	bool check_parallel(Line l) {
 		return (abs(a-l.a) < EPS) && (abs(b-l.b) < EPS); }
@@ -32,15 +31,15 @@ struct Line{
 		else p.y = -(l.a * p.x + c);
 		return true;
 	}
-	TTT Line operator + (Point<T> p) { // translate line by vector 
+	Line operator + (Point<ld> p) { // translate line by vector 
 		return Line(a, b, c-p.y*b-a*p.x);
 	}
 	friend ostream& operator << (ostream& os, Line l) {
 		return os << "(" << l.a << ", " << l.b  << ", " << l.c << ")"; }
 };
-TTT ld dist_to_line(Point<T> p, Line l) {
+ld dist_to_line(Point<ld> p, Line l) {
 	return abs(l.a * p.x + l.b * p.y + l.c) / sqrtl(l.a * l.a + l.b * l.b); }
-TTT Point<ld> closest_point(Point<T> p, Line ln) { // returns the closest point to p on l
+Point<ld> closest_point(Point<ld> p, Line ln) { // returns the closest point to p on l
 	ln = ln+(-p);
 	ld t = ln.c/(ln.a*ln.a+ln.b*ln.b);
 	return p+Point(-ln.a*t, -ln.b*t);
