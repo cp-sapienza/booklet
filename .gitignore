@@ -3,4 +3,6 @@
 *.out
 *.toc
 *.pdf
+*.fls
+*.fdb_latexmk
 .vscode/
