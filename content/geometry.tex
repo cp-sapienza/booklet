@@ -14,6 +14,29 @@ Use \verb|ll| as type - avoid \verb|ld| if possible.
 \subsection{Line}
 \snippet{source/line.h}
 
+\subsection{Circle-Line Intersections}
+Returns a \verb|vector<Point<ld>>| of size 0, 1 or 2, containings the intersection points.
+Requires \verb|Line|.
+\snippet{source/circle_line_intersec.h}
+
+
+\subsection{Circle-Circle Intersections}
+Returns a \verb|vector<Point<ld>>| of size 0, 1 or 2, containings the intersection points.
+This does NOT handle concentric circles. It's a case that must be handled before calling the function.\\
+Requires \verb|circle_x_line|. Usage:
+\begin{lstlisting}
+	if(abs(c1.x - c2.x) < EPS && abs(c1.y - c2.y) < EPS) {
+		if(abs(rad1 - rad2) < EPS) {...} // coincident circles
+		else {...} // non intersecting circles
+	}
+	else {
+		auto pts = circle_x_circle(c1, rad1, c2, rad2);
+		...
+	}
+\end{lstlisting}
+\snippet{source/circle_circle_intersec.h}
+
+
 \subsection{Polygon}
 Store vertices in counterclockwise (ccw) order.
 Change \verb|vector<Point<ll>>| to another type if needed - strongly discouraged.

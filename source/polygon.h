@@ -1,5 +1,7 @@
 #pragma once
 #include "common.h"
+#include "point.h"
+#include "line.h"
 
 ld perimeter(vector<Point<ll>>& poli){
 	ld res = 0.0;
