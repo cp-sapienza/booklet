@@ -5,11 +5,9 @@ struct UFDS {
 	vi parent, rank, sz;
 	int num_components;
 
-	UFDS(int N) : parent(N, 0), rank(N, 0), sz(N, 1), num_components(N) {
-		iota(parent.begin(), parent.end(), 0);
-	}
+	UFDS(int N) : parent(N, -1), rank(N, 0), sz(N, 1), num_components(N) {}
 	int find(int x) {
-		if(x == parent[x]) return x;
+		if(parent[x] == -1) return x;
 		return parent[x] = find(parent[x]);
 	}
 	bool merge(int a, int b) {
