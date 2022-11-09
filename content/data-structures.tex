@@ -30,16 +30,16 @@ and query, and complete the last query by inclusion-exclusion.
 Creates \bigo{logN} new nodes per update.
 \snippet{source/segment-persistent.h}
 
-\subsection{Segment tree - persistent with lazy range updates}
+\subsection{Segment tree - persistent, lazy range updates}
 \bigo{N} construction, \bigo{logN} per operation.
 Creates \bigo{logN} new nodes per update and query.
 \snippet{source/segment-lazystent.h}
 
 \subsection{Segment tree - sparse}
-\bigo{logN} per operation, \bigo{QlogN} memory (for Q = queries + updates).\\
-Works like a \verb|LazyST| but only creates nodes reached in queries and updates.\\
-This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX/2|).\\
-There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.\\
+\bigo{logN} per operation, \bigo{QlogN} memory (for Q = queries + updates).
+Works like a \verb|LazyST| but only creates nodes reached in queries and updates.
+This allows us to work with large ranges in [\verb|0|, \verb|inf|] (where \verb|inf| can go up to \verb|LLONG_MAX/2|).
+There is no constructor as the struct starts empty and must be initialized with multiple \verb|update|s.
 Last tip: high \verb|inf| might cause overheads, so try to keep it low.
 \snippet{source/segment-sparse.h}
 
@@ -62,8 +62,8 @@ Offline queries on a range in \bigo{(N+Q)\sqrt{N}}. Complete the add, remove and
 
 \bigo{logN} time per operation \\
 \verb|LineContainer cht;| \\
-\verb|cht.add(k, m);| to add a line of the form $y = kx + m$ \\
-\verb|cht.query(x);| to query the maximum value with coordinate $x$
+\verb|cht.add(k, m);| adds a line of the form $y = kx + m$ \\
+\verb|cht.query(x);| queries the maximum value with coordinate $x$ \\
 \snippet{source/line_container.h}
 
 \subsection{Treap}

@@ -123,16 +123,15 @@ Requires \verb|mod_mul(ll, ll, ll), mod_expoll(ll, ll, ll)|
 
 
 \subsection{Pollard's Rho - Prime Factor}
-Returns n if n is prime or n is $< 2$ \\
-Else returns a prime factor of n
+Returns a prime factor of $n$, or $n$ if it's prime or $< 2$.
 
 Requires \verb|miller_rabin(ll), mod_mul(ll, ll, ll)|
 \snippet{source/pollard_rho.h}
 
 
 \subsection{Integer Factorization}
-Returns a sorted list of prime factors of n \\
-Each factor is represented as a \verb|pair<ll, int>| \\
+Returns a sorted list of prime factors of $n$.
+Each factor is represented as a \verb|pair<ll, int>|,
 where the first element is the prime factor and the second is the power of that factor
 
 Requires \verb|pollard_rho(ll)|
@@ -204,14 +203,14 @@ Works with \verb|long long|
 
 \begin{itemize}[leftmargin=3ex]
 
-\item \textbf{Binomial Distribution}
+\item \textbf{Binomial}
 Discrete probability distribution of the number of successes in a sequence
 of $n$ indipendent Bernoulli trials, each with a probability $p$ of success.
 \[P(X = k) = \binom{n}{k}p^k(1 - p)^{n - k}\]
 \[E(X) = np,\,Var(X) = np(1 - p)\]
 
 
-\item \textbf{Negative Binomial Distribution}
+\item \textbf{Negative Binomial}
 Discrete probability distribution of the number of successes in a sequence
 of $n$ indipendent trials, each with a probability $p$ of success,
 before $r$ failures.
@@ -219,14 +218,14 @@ before $r$ failures.
 \[E(X) = \frac{rp}{(1 - p)^2},\,Var(X) = np(1 - p)\]
 
 
-\item \textbf{Geometric Distribution}
+\item \textbf{Geometric}
 Discrete probability distribution of the number of Bernoulli trials,
 each with a probability $p$ of success, needed to get one success.
 \[P(X = k) = (1 - p)^kp\]
 \[E(X) = \frac{1}{p},\,Var(X) = \frac{1 - p}{p^2}\]
 
 
-\item \textbf{Poisson Distribution}
+\item \textbf{Poisson}
 Discrete probability distribution of the number of events occurring
 in a fixed interval $t$ if these events occur with a mean rate of $\lambda / t$
 and indipendently of the time since the last event.
@@ -234,7 +233,7 @@ and indipendently of the time since the last event.
 \[E(X) = \lambda,\,Var(X) = \lambda\]
 
 
-\item \textbf{(Continuous) Uniform Distribution}
+\item \textbf{(Continuous) Uniform}
 Continuous probability distribution that describes an experiment
 where there is an arbitrary outcome that lies between $a$ and $b$.
 \[f(x) =
@@ -246,14 +245,14 @@ where there is an arbitrary outcome that lies between $a$ and $b$.
 \[E(X) = \frac{a + b}{2},\,Var(X) = \frac{(b - a)^2}{12}\]
 
 
-\item \textbf{Normal Distribution}
+\item \textbf{Normal}
 Continuous probability distribution used to model phenomena that have
 a default behaviour and cumulative possible deviations from that behaviour.
 \[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x - \mu)^2}{2\sigma^2}}\]
 \[E(X) = \mu,\,Var(X) = \sigma^2\]
 
 
-\item \textbf{Exponential Distribution}
+\item \textbf{Exponential}
 Continuous probability distribution of the times between events
 in a Poisson process of parameter $\lambda$.
 It's the continuous analogue of the geometric distribution and
