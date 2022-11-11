@@ -1,0 +1,6 @@
+con un validator possiamo vedere quando la soluzione non rispetta alcune proprieta' che dovrebbe
+
+validate.sh  solution  validator  generator  numTests
+solution, validator and generator are respectively the executables of the solution, validator of a solution and of the testcases generator 
+validator should return OK or the string that explain the error
+validator first take in input the generator input and next the program output
