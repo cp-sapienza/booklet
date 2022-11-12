@@ -11,4 +11,4 @@ Install the following packages (`sudo apt install <package>` on Ubuntu):
 - texlive-fonts-recommended
 - texlive-fonts-extra
 
-Then run `make` to build the PDF. `make clean` removes build artifacts, `make distclean` removes artifacts and the compiled PDF. `make test` runs unit testing.
+Then run `make` to build the PDF. `make clean` removes build artifacts, `make distclean` removes artifacts and the compiled PDF. `make test` runs unit tests.
