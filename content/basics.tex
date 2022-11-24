@@ -7,3 +7,30 @@
 \begin{lstlisting}[breakatwhitespace=true]
 g++ -std=gnu++17 -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover file.cpp -o file
 \end{lstlisting}
+
+\subsection{Stress test}
+\subsubsection{Compare two solutions}
+\texttt{compare.sh wrong slow generator numTests}
+
+\begin{itemize}
+    \item \texttt{wrong}, \texttt{slow} and \texttt{generator} are respectively the executables of the two solutions and of the testcases generator
+    \item compare the outputs of two solutions of a problem, checking if they give the same outputs
+\end{itemize}
+
+\lstinputlisting{source/stresstest/compare.sh}
+
+\subsubsection{Validate a solution}
+\texttt{validate.sh solution validator generator numTests}
+\begin{itemize}
+    \item \texttt{solution}, \texttt{validator} and \texttt{generator} are respectively the executables of the solution, validator of a solution and of the testcases generator
+    \item \texttt{validator} should return the string \texttt{"OK"} or the string that explains the error
+    \item \texttt{validator} first take in input the \texttt{generator} input and next the program output
+\end{itemize}
+
+\lstinputlisting{source/stresstest/validate.sh}
+
+to generate a test case use \texttt{uid(a, b)} that generates a random number in $[a, b]$
+\begin{lstlisting}[breakatwhitespace=true]
+#define uid(a, b) uniform_int_distribution(a, b)(rng)
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+\end{lstlisting}

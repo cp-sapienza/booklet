@@ -6,16 +6,14 @@ do
     ./$2 < input > out2
     ./$1 < input > out1
     echo $testNum
-    H1=`md5sum out1`
-    H2=`md5sum out2`
     if !(cmp -s "out1" "out2")
     then
         echo "Error found!"
         echo "Input:"
         cat input
-        echo "Output:"
+        echo $1 output:
         cat out1
-        echo "Output:"
+        echo $2 output:
         cat out2
         rm input out1 out2
         exit
