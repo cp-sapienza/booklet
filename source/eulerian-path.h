@@ -5,7 +5,7 @@ struct edge {
 	int value;
 	list<edge>::iterator it;
 };
-struct eulerPath{
+struct eulerPath {
 	vector<list<edge>> adj;
 	vi result;
 	int n;
@@ -21,8 +21,7 @@ struct eulerPath{
 		assert(odds == 2 || odds == 0); 
 		stack<int> st;
 		st.push(start);
-		while(st.size())
-		{
+		while(st.size()) {
 			int v = st.top();
 			while(!adj[v].empty()) {
 				int u = adj[v].front().value;
@@ -36,7 +35,7 @@ struct eulerPath{
 			st.pop();
 		}
 	}
-	eulerPath(int sz) : n(sz){
+	eulerPath(int sz) : n(sz) {
 		adj.resize(n);
 	}
 	void addEdge(int a, int b) {
