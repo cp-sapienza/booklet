@@ -5,7 +5,11 @@ struct edge {
 	int value;
 	list<edge>::iterator it;
 };
-struct eulerPath {
+struct EulerPath {
+	struct Edge {
+		int value;
+		list<Edge>::iterator it;
+	};
 	vector<list<edge>> adj;
 	vi result;
 	int n;
