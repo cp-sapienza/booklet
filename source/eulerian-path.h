@@ -10,7 +10,7 @@ struct EulerPath {
 		int value;
 		list<Edge>::iterator it;
 	};
-	vector<list<edge>> adj;
+	vector<list<Edge>> adj;
 	vi result;
 	int n;
 	void calc() {
