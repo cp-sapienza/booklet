@@ -39,7 +39,7 @@ struct EulerPath {
 			st.pop();
 		}
 	}
-	eulerPath(int sz) : n(sz) {
+	EulerPath(int sz) : n(sz) {
 		adj.resize(n);
 	}
 	void addEdge(int a, int b) {
