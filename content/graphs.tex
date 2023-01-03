@@ -98,3 +98,9 @@ If the graph is not connected it returns an empty list. \\
 \verb|kosaraju.comp[u]| will store an integer in range [0, cc) representing the strongly connected component of u \\
 \verb|kosaraju.cond_adj| will store the adjacency list of the condensation graph
 \snippet{source/kosaraju.h}
+
+\subsection{Eulerian Path}
+\bigo{E}
+Call \verb|addEdge(a, b)| to add each undirected edge to the graph
+\verb|eulerPath.result| stores the eulerian path or eulerian cycle
+\snippet{source/eulerian-path.h}
