@@ -1,51 +1,38 @@
 #pragma once
 #include "common.h"
 
-struct edge {
-	int value;
-	list<edge>::iterator it;
-};
-struct EulerPath {
-	struct Edge {
-		int value;
-		list<Edge>::iterator it;
-	};
-	vector<list<Edge>> adj;
-	vi result;
-	int n;
-	void calc() {
-		int odds = 0, start = 0;
-		for(int i = 0; i < n; ++i) {
-			if(adj[i].size() % 2) {
-				++odds;
-				start = i;
-			}
-		}
-		// odds == 2 => eulerian path; odds == 0 => eulerian cycle; else there's no solution
-		assert(odds == 2 || odds == 0); 
-		stack<int> st;
-		st.push(start);
-		while(st.size()) {
-			int v = st.top();
-			while(!adj[v].empty()) {
-				int u = adj[v].front().value;
-				auto reversed = adj[v].front().it;
-				adj[v].erase(adj[v].begin());
-				adj[u].erase(reversed);
-				st.push(u);
-				v = st.top();
-			}
-			result.push_back(st.top());
+vi euler_walk(vector<vector<pair<int, int>>>& adj, int E, int src = 0, bool directed = 0) {
+	int n = ssize(adj), odds = 0;
+	vi indeg(n, 0);
+	if(directed)
+		for(auto &v: adj)
+			for(auto [dest, ind]: v)
+				indeg[dest]++;
+	bool srcgood = (directed? indeg[src] != ssize(adj[src]) : ssize(adj[src]) % 2 == 1);
+	for(int i = 0; i < n; ++i) {
+		int incr = (directed? abs(ssize(adj[i]) - indeg[i]) : ssize(adj[i]) % 2);
+		odds += incr;
+		if(!srcgood && incr) src = i;
+	}
+	if(odds > 2) return {};
+	vi result, inds(n, 0);
+	vector<bool> used(E, 0);
+	stack<int> st;
+	st.push(src);
+	while(st.size()) {
+		int v = st.top();
+		if(inds[v] == ssize(adj[v])) {
+			result.push_back(v);
 			st.pop();
+			continue;
 		}
+		int ind = inds[v]++;
+		auto [dst, id] = adj[v][ind];
+		if(used[id]) continue;
+		used[id] = true;
+		st.push(dst);
 	}
-	EulerPath(int sz) : n(sz) {
-		adj.resize(n);
-	}
-	void addEdge(int a, int b) {
-		adj[a].push_front({b, adj[a].end()});
-		auto ita = adj[a].begin();
-		adj[b].push_front({a, ita});
-		ita->it = adj[b].begin();
-	}
-};
+	if(ssize(result) != E+1) return {};
+	reverse(all(result));
+	return result;
+}
