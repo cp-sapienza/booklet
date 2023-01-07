@@ -5,7 +5,7 @@
 \subsection{Modular multiplication}
 \bigo{logN} Time
 
-Computes $(a * b)$\:\%\:mod without overflow.
+Computes $(a * b)$\:\%\:mod without overflow. Use the second version only if \texttt{\_\_int128} isn't supported, it's much slower.
 \snippet{source/mod_mul.h}
 
 
