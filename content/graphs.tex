@@ -101,10 +101,12 @@ If the graph is not connected it returns an empty list. \\
 
 \subsection{Eulerian Path}
 \bigo{E+V}. 
-The first value in each \verb|adj| entry is the usual vertex id, the second one must be an edge id: \\
-the id must be a integer in [0, E-1] and it must be the same id for both directions if the edge is undirected.\\
+The first value in each \verb|adj| entry is the usual destination vertex, the second one must be an edge id: \\
+the id must be a integer in [0, E-1] and it must be the same for both directions if the edge is undirected.\\
 3 cases : empty \verb|result| $\Rightarrow$ there's no e-path; \\
 - \verb|result[0] != src| $\Rightarrow$ there's no e-path starting at \verb|src|; \\
 - else \verb|result| is an e-path starting at \verb|src|
+
+If `result.front() == result.back()`, the walk is also an euler cycle.
 \snippet{source/eulerian-path.h}
 
