@@ -17,10 +17,8 @@ ll linear_recurrence(const vector<ll>& a, const vector<ll>& b, const vector<ll>&
 
 	vector<ll> xx(k+h);
 	for(int i = 0; i < k; i++) xx[i] = x[i];
-	if(h > 0) {
-        xx[k] = 1;
-	    for(int i = 1; i < h; i++) xx[k+i] = (xx[k+i-1] * k) % mod;
-    }
+	if(h > 0) xx[k] = 1;
+	for(int i = 1; i < h; i++) xx[k+i] = (xx[k+i-1] * k) % mod;
 
 	auto res = mat_mul(mat_pow(m, n, mod), xx, mod);
 	return (res[0] % mod + mod) % mod;
