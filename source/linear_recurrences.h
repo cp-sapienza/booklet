@@ -3,7 +3,7 @@
 #include "matrix_mult_pow.h"
 
 ll linear_recurrence(const vector<ll>& a, const vector<ll>& b, const vector<ll>& x, ll n, ll mod) {
-	int k = a.size(), h = b.size();
+	int k = ssize(a), h = ssize(b);
 	Matrix m(k+h, vector<ll>(k+h, 0));
 
 	for(int i = 0; i < k-1; i++) m[i][i+1] = 1;
