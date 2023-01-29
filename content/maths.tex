@@ -359,10 +359,10 @@ then this approach improves the time complexity from \bigo{N^2 M} to \bigo{NM \l
 
 Usage:
 \begin{lstlisting}
-for (int i = 0; i < M; ++i)
+for (int i = 0; i < n; ++i)
 	dp_old[i] = cost(0, i);
 
-for (int i = 1; i < N; ++i) {
+for (int i = 1; i < m; ++i) {
 	compute(0, n - 1, 0, n - 1);
 	dp_old = dp_cur;
 }
