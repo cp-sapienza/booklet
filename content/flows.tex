@@ -26,6 +26,14 @@ for(int u = 0; u < n; u++)
 Given a bipartite graph with \verb|N| nodes on the left (numbered $0 \ldots N-1$) and \verb|M| on the right (numbered $0 \ldots M-1$), select as many edges as possible such that two edges never touch. Returns the list of edges in the matching.
 \snippet{source/bipartite_matching.h}
 
+\subsection{Bipartite minimum vertex cover}
+Given a bipartite graph with \verb|N| nodes on the left (numbered $0 \ldots N-1$) and \verb|M| on the right (numbered $0 \ldots M-1$), 
+select as little vertices as possible such that all edges have at least one end on a selected vertex.
+Its complement it's the independent set, which is the biggest set of all vertices that don't share edges.
+Calculates the minimum vertex cover if \verb|ind_set| is \verb|false|, otherwise calculates the independent set.
+Returns \verb|make_pair(left vertices, right vertices)|
+\snippet{source/vertex_cover.h}
+
 \subsection{Min cost max flow}
 Approximately \bigo{E^2}. Call \texttt{setpi} before \texttt{maxflow} if costs can be negative.
 \snippet{source/mcmf.h}
