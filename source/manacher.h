@@ -2,7 +2,7 @@
 #include "common.h"
 
 array<vi,2> manacher(const string& s) {
-	int n = s.size();
+	int n = ssize(s);
 	array<vi,2> p = {vi(n), vi(n)};
 	for(int k = 0; k < 2; k++)
 	for(int i = 0, l = 0, r = -1; i < n; i++) {

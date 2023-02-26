@@ -5,7 +5,7 @@
 using P = Point<ll>;
 
 pair<P, P> closest_pair(vector<P> points) {
-	int n = points.size();
+	int n = ssize(points);
 	assert(n >= 2);
 
 	auto cmp_by_x = [](const P& a, const P& b) { return tie(a.x, a.y) < tie(b.x, b.y); };

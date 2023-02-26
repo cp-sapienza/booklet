@@ -28,7 +28,7 @@ struct centroid
 	centroid(vector<vi> const &ad)
 	{
 		adj = ad;
-		n = adj.size();
+		n = ssize(adj);
 		sz.resize(n);
 		rm.resize(n, 0);
 		deco(0);

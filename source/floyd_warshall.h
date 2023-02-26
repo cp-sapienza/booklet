@@ -2,7 +2,7 @@
 #include "common.h"
 
 vector<vll> floyd_warshall(vector<vll>& g) {
-	int n = g.size();
+	int n = ssize(g);
 	vector<vll> dist = g;
 	for(int i = 0; i < n; i++) dist[i][i] = min(dist[i][i], 0LL);
 	for(int k = 0; k < n; ++k)

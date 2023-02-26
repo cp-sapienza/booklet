@@ -41,7 +41,7 @@ struct hld
 	hld(vector<vi> const& ad, vector<int> w, int root = 0)
 	{
 		adj = ad;
-		int n = ad.size();
+		int n = ssize(ad);
 		parent = vi(n);
 		depth = vi(n);
 		heavy = vi(n, -1);
@@ -50,7 +50,7 @@ struct hld
 		cur_pos = root;
 		dfs(root);
 		decompose(root, root);
-		vector<int> data(ad.size());
+		vi data(n);
 		for(int i=0;i<n;i++)
 			data[pos[i]] = w[i];
 		seg = LazyST(data);

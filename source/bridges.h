@@ -21,7 +21,7 @@ struct Bridges {
 		}
 	}
 	Bridges(vector<vi>& adj) {
-		int n = adj.size();
+		int n = ssize(adj);
 		t = 0;
 		vis.resize(n, false);
 		tin.resize(n, -1);

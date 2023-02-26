@@ -18,7 +18,7 @@ struct Trie {
 		int u = 0;
 		for (char ch : s) {
 			if (v[u].next[toidx(ch)] == -1)
-				v[u].next[toidx(ch)] = v.size(), v.emplace_back();
+				v[u].next[toidx(ch)] = ssize(v), v.emplace_back();
 			u = v[u].next[toidx(ch)];
 		}
 		v[u].marker = true;

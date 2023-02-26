@@ -2,7 +2,7 @@
 #include "common.h"
 
 vi topological_sort(vector<vi>& adj) {
-	int n = adj.size();
+	int n = ssize(adj);
 	vi in_degree(n, 0);
 	for (int u = 0; u < n; ++u)
 		for (int v : adj[u])

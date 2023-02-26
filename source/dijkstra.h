@@ -2,7 +2,7 @@
 #include "common.h"
 
 vector<ll> dijkstra(vector<vector<pair<int,ll>>>& adj, int src) {
-	int n = adj.size();
+	int n = ssize(adj);
 	vector<ll> dist(n, INF);
 	dist[src] = 0LL;
 	set<pair<ll, int>> s{{0LL, src}};

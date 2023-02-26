@@ -24,7 +24,7 @@ struct Node {
 			x0 = min(x0, p.x); x1 = max(x1, p.x);
 			y0 = min(y0, p.y); y1 = max(y1, p.y);
 		}
-		if (vp.size() > 1) {
+		if (ssize(vp) > 1) {
 			sort(all(vp), x1 - x0 >= y1 - y0 ? cmp_by_x : cmp_by_y);
 			int half = ssize(vp) / 2;
 			first = new Node({vp.begin(), vp.begin() + half});
