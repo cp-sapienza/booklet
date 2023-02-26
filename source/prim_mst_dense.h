@@ -2,7 +2,7 @@
 #include "common.h"
 
 vector<vector<pair<int, ll>>> prim(const vector<vector<ll>>& mat) {
-	int n = mat.size();
+	int n = ssize(mat);
 	vector<vector<pair<int, ll>>> mst(n);
 	vector<bool> chosen(n);
 	vector<pair<int, ll>> min_edge(n, {-1, INF});

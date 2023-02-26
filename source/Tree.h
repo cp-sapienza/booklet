@@ -40,7 +40,7 @@ class Tree {
 public:
 
 	Tree(vector<vi>& adj, int root=0) {
-		int n = adj.size();
+		int n = ssize(adj);
 		depth.resize(n, 0);
 
 		vi parent(n, 0);

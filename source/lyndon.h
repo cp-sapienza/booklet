@@ -2,7 +2,7 @@
 #include "common.h"
 
 vector<pair<int,int>> lyndon(const string& s) {
-	int n = s.size(), j, k;
+	int n = ssize(s), j, k;
 	vector<pair<int,int>> fact;
 	for(int i = 0; i < n; ) {
 		for(j = i+1, k = i; j < n && s[k] <= s[j]; j++)

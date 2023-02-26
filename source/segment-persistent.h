@@ -18,12 +18,12 @@ struct PersistentST {
 	vector<int> roots;
 
 	PersistentST(const vector<int>& data) {
-		n = data.size();
+		n = ssize(data);
 		roots.push_back(build(0, n-1, data));
 	}
 	template<typename... Args> int alloc(Args... args) {
 		st.emplace_back(args...);
-		return st.size() - 1;
+		return ssize(st) - 1;
 	}
 	int build(int l, int r, const vector<int>& data) {
 		if(l == r) return alloc(Value{data[l]});

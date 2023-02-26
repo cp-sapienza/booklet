@@ -8,7 +8,7 @@ vector<P> convex_hull(vector<P> points, bool collinear_edges=false) {
 	vector<P> hull;
 	sort(all(points), [](const P& a, const P& b){ return tie(a.x, a.y) < tie(b.x, b.y); });
 	for (int _ = 0; _ < 2; ++_) {
-		int sz = hull.size();
+		int sz = ssize(hull);
 		for (P& p : points) {
 			if (ssize(hull) && hull.end()[-1] == p) continue;
 			while (ssize(hull) - sz >= 2) {

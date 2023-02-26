@@ -23,7 +23,7 @@ struct ArticulationPoints {
 		return c;
 	}
 	ArticulationPoints(vector<vi>& adj) {
-		int n = adj.size();
+		int n = ssize(adj);
 		t = 0;
 		is_ap.resize(n, false);
 		vis.resize(n, false);

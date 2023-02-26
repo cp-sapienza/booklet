@@ -8,7 +8,7 @@ struct Kosaraju {
 	int cc = 0;
 
 	void init_radj() {
-		int n = adj.size();
+		int n = ssize(adj);
 		radj.resize(n);
 		for (int u = 0; u < n; ++u)
 			for (int v : adj[u])
@@ -52,7 +52,7 @@ struct Kosaraju {
 	Kosaraju(vector<vi>& g) {
 		adj = g;
 		init_radj();
-		int n = adj.size();
+		int n = ssize(adj);
 		vis.resize(n);
 		comp.resize(n);
 		for (int u = 0; u < n; ++u)

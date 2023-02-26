@@ -4,7 +4,7 @@
 struct SuffixArray {
 	vi sa, rank, lcp;
 	SuffixArray(const string& s) {
-		int n = s.size() + 1, cl = 256;
+		int n = ssize(s) + 1, cl = 256;
 		vi c(n), cn(n), pn(n), cnt(max(n,cl));
 		iota(pn.begin(), pn.end(), 0);
 		sa = rank = c;
