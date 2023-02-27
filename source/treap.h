@@ -15,7 +15,8 @@ struct Treap {
 
 	Treap(Val x, Treap* l = NULL, Treap *r = NULL) {
 		val = x; sz = 1; prio = rng();
-		left = l; right = r; rev = false; sum = x;
+		left = l; right = r; rev = false; sum = 0;
+		recalc();
 	}
 	~Treap() {
 		if(left) delete left;
