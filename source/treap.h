@@ -13,10 +13,8 @@ struct Treap {
 	int prio, sz;
 	Treap *left, *right;
 
-	Treap(Val x, Treap* l = NULL, Treap *r = NULL) {
-		val = x; sz = 1; prio = rng();
-		left = l; right = r; rev = false; sum = 0;
-	}
+	Treap(Val x)
+		: val(x), sum(x), rev(false), prio(rng()), sz(1), left(nullptr), right(nullptr) {}
 	~Treap() {
 		if(left) delete left;
 		if(right) delete right;
