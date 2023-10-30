@@ -16,7 +16,7 @@ vector<ll> bellman_ford(vector<array<int, 3>>& edges, int v, int src) {
 		}
 	}
 
-	for (int i = 0; i < v - 1 && relaxed; ++i) {
+	for (int i = 0; i < v && relaxed; ++i) {
 		relaxed = false;
 		for (auto [start, end, weight] : edges) {
 			if (dist[start] == -INF || (dist[start] != INF && dist[start] + weight < dist[end])) {
