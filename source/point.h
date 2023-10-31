@@ -50,4 +50,6 @@ struct Point {
 // clockwise rotation: use -theta, center = c
 Point<ld> ccw_rotation(ld theta, const Point<ld> p, const Point<ld> c = Point<ld>(0, 0)){
 	ld rad = deg_to_rad(theta);
-	return Point(cosl(rad) * (p.x - c.x) - sinl(rad) * (p.y - c.y) + c.x, sinl(rad) * (p.x - c.x) - cosl(rad) * (p.y - c.y) + c.y); }
+	return Point(
+		cosl(rad) * (p.x - c.x) - sinl(rad) * (p.y - c.y) + c.x, 
+		sinl(rad) * (p.x - c.x) + cosl(rad) * (p.y - c.y) + c.y); }
