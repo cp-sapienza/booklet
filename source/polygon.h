@@ -72,7 +72,7 @@ vector<Point<ld>> cut_poly(Point<ld> A, Point<ld> B, const vector<Point<ld>> &Q)
   int n = ssize(Q);
   for (int i = 0; i < n; i++) {
 	ld left1 = (B-A).cross(Q[i] - A), left2 = 0;
-	if (i != n-1) left2 = (B-A).cross(Q[(i+1)%n] - A);
+	left2 = (B-A).cross(Q[(i+1)%n] - A);
 	if (left1 > -EPS) P.push_back(Q[i%n]);
 	if (left1*left2 < -EPS)
 	  P.push_back(intersec_line_seg(Q[i], Q[(i+1)%n], A, B));
