@@ -43,20 +43,19 @@ int point_inside_polygon(Point<ll> pt, vector<Point<ll>>& poli){
 	}
 	return abs(sum) > M_PI ? 1 : -1;
 }
-ld dist_point_segment(Point<ll> p, Point<ll> a, Point<ll> b){
-	Line l(a, b);
-	Point<ld> c = closest_point(p, l);
-	Point<ld> pld = p.to_ld();
-	if(c.x >= min(a.x, b.x) && c.x <= max(a.x, b.x) && c.y >= min(a.y, b.y) && c.y <= max(a.y, b.y)){
-		return pld.dist(c);
-
-	}
-	ld dap = pld.dist(a.to_ld()), dbp = pld.dist(b.to_ld());
-	if(dap - dbp < EPS) return dap;
-	else return dbp;
+ld dist_point_segment(Point<ld> p, Point<ld> a, Point<ld> b){
+    Line l(a, b);
+    Point<ld> c = closest_point(p, l);
+    if (c.x >= min(a.x, b.x) && c.x <= max(a.x, b.x) && c.y >= min(a.y, b.y) && c.y <= max(a.y, b.y))
+        return p.dist(c);
+    ld dap = p.dist(a), dbp = p.dist(b);
+    if (dap - dbp < EPS)
+        return dap;
+    else
+        return dbp;
 }
 // distance from pt to the closest side of the polygon
-ld dist_point_poly(Point<ll> pt, vector<Point<ll>>& poli){
+ld dist_point_poly(Point<ld> pt, vector<Point<ld>>& poli){
 	ld best_dist = numeric_limits<ld>::max();
 	int n = ssize(poli);
 	for(int i = 0; i <= n; i++){
