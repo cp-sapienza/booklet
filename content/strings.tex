@@ -24,9 +24,16 @@ returns true if there's a string ending at node \verb|u| \\
 \begin{flushleft}
 $z[i] = $ length of the longest substring starting at i that is a prefix of s \\
 $z[i] = $ max len s.t. $s[0..len-1] == s[i..i+len-1]$, $z[0] = 0$
-
 \end{flushleft}
 \snippet{source/z_func.h}
+
+\subsection{Periods}
+\bigo{N}
+
+$k \leq N$ is a period of a string $s$ iff $\forall i, s[i] = s[i\%k]$. \\
+Note this means that 2 is a valid period of "aba" 
+(uncomment the line if this is not wanted)
+\snippet{source/periods.h}
 
 \subsection{KMP}
 \bigo{N} construction, \bigo{N+M} search with \bigo{|pat|} space.
