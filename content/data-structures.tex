@@ -43,6 +43,27 @@ There is no constructor as the struct starts empty and must be initialized with 
 Last tip: high \verb|inf| might cause overheads, so try to keep it low.
 \snippet{source/segment-sparse.h}
 
+\subsection{Segment tree - max/min subarray sum}
+Best is max/min sum of a subarray in a given range. \\
+Paste the following code into a |SegmentTree|
+\begin{lstlisting}
+#define worst int(-1e9) // 1e9 for min, 0 if empty ranges are solutions
+#define op max // or min
+struct Node 
+{
+	ll sum, l, r, best;
+	Node(int v) : sum(v), l(v), r(v) { best = op(worst, v);}
+	Node(ll a, ll b, ll c, ll d) :sum(a), l(b), r(c), best(d) {}
+};
+
+Node unit = Node(0, 0, 0, worst);
+Node merge(Node a, Node b) {
+	return Node{a.sum + b.sum, 
+		op(a.l, a.sum+b.l), op(b.r, b.sum+a.r), 
+		op(a.r+b.l, op(a.best, b.best))};
+}
+
+\end{lstlisting}
 \subsection{Union find}
 \snippet{source/ufds.h}
 
