@@ -1,6 +1,8 @@
 #pragma once
 #include "common.h"
 
+#define mod (ll)(1e9 + 7)
+
 struct Node {
 	ll h, p;
 	Node(char ch) { h = ch; p = 26; }
